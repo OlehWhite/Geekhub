@@ -36,8 +36,7 @@ console.log('d:', str.slice(0, 10));
 // в третьому 41-60.
 // Створити функцію, в яку можна передати номер квартири і при виклику якої буде повертатись номер підʼїзда.
 
-const userEntryway = 70;
-    // Number(prompt("Вкажіть номер вашої квартири:"));
+const userEntryway = Number(prompt("Вкажіть номер вашої квартири:"));
 
 const takeNumberApartment = (numApartment) => {
     if (numApartment <= 20) {
