@@ -1,0 +1,93 @@
+/** Fonts */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/** header */
+.header {
+    display: flex;
+    justify-content: space-around;
+}
+
+.logo {
+    margin: 20px 0;
+}
+
+.nav__inner {
+    display: flex;
+}
+
+.nav__item {
+    font-size: 14px;
+    font-weight: 500;
+    list-style-type: none;
+    margin: 0 10px;
+    color: #000C2D;
+    padding: 10px;
+    border: 1px solid white;
+    transition: all .4s;
+}
+
+.nav__item:hover,
+.nav__item:hover .nav__login {
+    color: #2F70FE;
+    border: 1px solid #2F70FE;
+    fill: #2F70FE;
+}
+
+.nav__login {
+    margin-bottom: -2px;
+}
+
+/** Menu */
+.main {
+    background-color: #2F70FE;
+}
+
+.main__h1 {
+    padding-top: 110px;
+    margin: 0 auto;
+    text-align: center;
+    max-width: 690px;
+    color: #FFFFFF;
+    font-size: 48px;
+    font-weight: 500;
+}
+
+.main__container {
+    display: flex;
+    justify-content: center;
+}
+
+.main__info {
+    text-align: center;
+    color: #FFFFFF;
+    max-width: 680px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.main__button {
+    background-color: #000000;
+    color: #FFFFFF;
+    font-size: 16px;
+    padding: 16px 25px;
+    display: block;
+    margin: 0 auto;
+    transition: all .4s;
+}
+
+.main__button:hover {
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+.main__left-img {
+    margin: 34px 0 -34px 0;
+}
+
+.main__right-img {
+    margin: -28px 48px 28px 18px;
+}
