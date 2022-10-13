@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="78c48cf7-197f-4db4-870c-62d8f7946ef4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Zomentum/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Zomentum/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -72,7 +71,7 @@
       <option name="presentableId" value="Default" />
       <updated>1665574451032</updated>
       <workItem from="1665574452274" duration="10281000" />
-      <workItem from="1665597138767" duration="35713000" />
+      <workItem from="1665597138767" duration="35851000" />
     </task>
     <servers />
   </component>
