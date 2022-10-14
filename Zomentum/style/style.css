@@ -26,11 +26,22 @@ body {
     font-weight: 500;
     list-style-type: none;
     margin: 0 10px;
-    color: #000C2D;
+
     fill: #000C2D;
     padding: 10px;
     border: 1px solid white;
     transition: all .4s;
+}
+
+.nav__item a {
+    text-decoration: none;
+    color: #000C2D;
+}
+
+.nav__item:hover a{
+    text-decoration: none;
+    color: #2F70FE;
+    transition: .3s all;
 }
 
 .nav__item:hover,
@@ -221,10 +232,15 @@ body {
     font-size: 16px;
     font-weight: 500;
 }
+
 .info__link::after {
     content: url("../images/Right menu Arrow.svg");
     position: absolute;
     margin-left: 10px;
+}
+
+.info__link:hover {
+    color: #5386f5;
 }
 
 /** footer */
@@ -261,6 +277,10 @@ body {
     margin-bottom: 10px;
 }
 
+.section__item a:hover {
+    color: #FFFFFF;
+}
+
 .footer__other {
     max-width: 1280px;
     margin: 0 auto;
@@ -273,9 +293,7 @@ body {
     color: #FFFFFF;
 }
 
-/** adaptive screen 768px */
-@media screen and (max-width: 768px) {
-
+@media screen and (max-width: 991px) {
     /** header */
     .header,
     .nav__inner {
@@ -284,6 +302,26 @@ body {
         flex-direction: column;
         padding: 0;
     }
+
+    .nav__inner:nth-child(1) {
+        border: 1px solid;
+    }
+
+    .nav__item {
+        width: 991px;
+        border: 1px solid #000c2ddb;
+        text-align: center;
+    }
+
+    /** main */
+    .main {
+        margin-top: -16px;
+    }
+
+}
+
+/** adaptive screen 768px */
+@media screen and (max-width: 768px) {
 
     /** blue section */
     .section__container {
@@ -348,6 +386,7 @@ body {
     }
 }
 
+/** adaptive screen 480px */
 @media  screen and (max-width: 480px) {
 
     .footer__other {

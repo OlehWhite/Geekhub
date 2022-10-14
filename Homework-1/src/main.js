@@ -15,13 +15,14 @@ console.log('c:', parseInt(number))
 // String
 const str = 'some test string';
 
-// a. Отримати число pi з Math і округлити його до 2 знаків після крапки
+// a. Отримати першу й останню букви стрінги.
 console.log('a:', str.charAt(0), str.charAt(str.length - 1));
 
 // b. Зробити першу й останню букву великими
 console.log('b:',
-    str.charAt(0).toUpperCase(),
-    str.charAt(str.length - 1).toUpperCase()
+    // str.charAt(0).toUpperCase(),
+    // str.charAt(str.length - 1).toUpperCase()
+    str[0].toUpperCase() + str.slice(1, str.length - 1) + str[str.length -1].toUpperCase()
 )
 
 // c. Знайти позицію другого пробілу
