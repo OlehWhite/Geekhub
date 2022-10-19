@@ -30,6 +30,7 @@ body {
     padding: 10px;
     border: 1px solid white;
     transition: all .4s;
+    cursor: pointer;
 }
 
 .nav__item a {

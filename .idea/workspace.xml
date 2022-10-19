@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="78c48cf7-197f-4db4-870c-62d8f7946ef4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zomentum/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Zomentum/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Zomentum/style/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Zomentum/style/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -77,7 +76,7 @@
       <workItem from="1665574452274" duration="10281000" />
       <workItem from="1665597138767" duration="50485000" />
       <workItem from="1665762154789" duration="2129000" />
-      <workItem from="1666100211234" duration="9832000" />
+      <workItem from="1666100211234" duration="10356000" />
     </task>
     <servers />
   </component>
