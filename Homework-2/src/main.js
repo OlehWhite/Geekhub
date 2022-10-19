@@ -61,8 +61,6 @@ const getMinMaxSumNumber = (minMaxSum) => {
         sum += minMaxSum[i]
     }
 
-    
-
     return `
         Sum: ${sum}
         Min: ${min}
