@@ -1,8 +1,8 @@
 // 1. Створити функцію multiple() яка може приймати не обмежену кількість аргументів, та перемножує їх
-const multiple = (...Arg) => {
-    return [...Arg].reduce((element, total) => element * total, 1)
+const multiple = (Arg) => {
+    return Arg.reduce((element, total) => element * total)
 }
-multiple();
+multiple([2, 5])
 
 // 2. Створити фунцію reverseString яка приймає 1 аргумент будь-якого типу, і розвертає його.
 // Наприклад: ‘test’ -> `tset`, undefined -> ‘denifednu’
@@ -15,25 +15,25 @@ const reverseString = (value) => {
     }
     return strRevers
 }
-reverseString();
+reverseString(null);
 
 // 3. Створити фунцію вгадати число. Умови:
 //      a. Приймає число від 1-10. Перевірити що число не більше 10 і не менше 1, якщо не відповідає повернути помилку new Error(‘Please provide number in range 0 - 10’)
 //      b. Якщо передали не число. Помилка return new Error(“Please provide a valid number”);
 //      c. Далі функція генерує рандомне число від 1 до 10 і якщо задане число правильне повертає стрінгу ‘You Win!’, якщо не правильно ‘You are lose, your number is 8, the random number is 5’
 const isUserNumber = Number(prompt('Let\'s play the guess a number game!\n' +
-    'Give one whole number from 1 to 10!', 5));
+    'Give one whole number from 1 to 10!', 5));     // Запитуємо в користувача число
 
 const guessTheNumber = (isUserNumber) => {
 
-    const isRandomNumber = Math.floor(Math.random() * (10 - 1 + 1) + 1);
+    const isRandomNumber = Math.floor(Math.random() * (10 - 1 + 1) + 1);    //  Створюємо рандомне число від 1 до 10
 
     if (isNaN(isUserNumber)) {
-        throw new Error('Please provide a valid number:');
+        throw new Error('Please provide a valid number:');      // Якщо користувач ввів не число
     }
 
     if (isUserNumber <= 1 || isUserNumber > 10) {
-        throw new Error('Please provide number in range 1 - 10');
+        throw new Error('Please provide number in range 1 - 10');       // Якщо число більше 10 або менше 1
     }
 
     if (isRandomNumber === isUserNumber) {
@@ -100,7 +100,7 @@ const getSumRain = (isArray) => {
             sumFirstArray.push(maxLeftArray[index])
         }
         if (sumFirstArray.length !== 0) {     // Якщо масив не пустий
-            if (maxLeftArray[index] === 0) {    // Перевірка, чи рівний елемент нулю
+            if (maxLeftArray[index] === 0) {    // Перевіряємо, чи рівний елемент нулю
                 sumFirstArray.push(maxLeftArray[index])
             }
             if (maxLeftArray[index] >= maxLeftArray[index + 1]) {   // Порівнює кожний елемент масива
@@ -114,10 +114,10 @@ const getSumRain = (isArray) => {
         maxLeft.push(Math.max(...sumFirstArray))
         return maxLeft
     })
-    maxLeft.pop()   // Вирівнюємо края наших скал
-    maxLeft.unshift(0)
+    maxLeft.pop()   // Вирівнюємо краї наших скал
+    maxLeft.unshift(0)  // Вирівнюємо краї наших скал додаючи 0 на початок
 
-    maxRightArray.reverse().map((element, index) => {      // Створюємо такий самий масив тільки із права наліво (maxRight) за допомогою reverse()
+    maxRightArray.reverse().map((element, index) => {      // Створюємо такий самий масив тільки з права наліво (maxRight) за допомогою reverse()
         if (sumSecondArray.length === 0) {
             sumSecondArray.push(maxRightArray[index])
         }
@@ -136,9 +136,9 @@ const getSumRain = (isArray) => {
         maxRight.push(Math.max(...sumSecondArray))
         return maxRight
     })
-    maxRight.unshift(0)
-    maxRight.pop()
-    maxRight.reverse()
+    maxRight.unshift(0)     // Вирівнюємо краї наших скал додаючи 0 на початок
+    maxRight.pop()      // Вирівнюємо краї наших скал
+    maxRight.reverse()      // Розвертаємо, щоб коретно пройшли наступні операціїї
 
     for (let i = 0; i < maxLeft.length || i < maxRight.length ; i++) {       // Рахуємо мінімум в який може набратися вода
         minLR.push(Math.min(maxLeft[i], maxRight[i]));
@@ -155,9 +155,3 @@ const getSumRain = (isArray) => {
 }
 
 getSumRain(input);
-getSumRain(input1);
-getSumRain(input2);
-getSumRain(input3);
-getSumRain(input4);
-getSumRain(input5);
-getSumRain(input6);
