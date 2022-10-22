@@ -82,7 +82,7 @@ const input4 = [2, 2, 1, 2, 2, 3, 0, 1, 2] // 4
 const input5 = [2, 1, 5, 0, 3, 4, 7, 2, 3, 1, 8] // 24
 const input6 = [2, 2, 2, 2, 2] // 0
 
-function getSumRain(isArray) {
+const getSumRain = (isArray) => {
     const input = [...isArray]
     const maxLeftArray = [...isArray];
     const maxRightArray = [...isArray];
@@ -151,13 +151,13 @@ function getSumRain(isArray) {
         }
     }
 
-    return isValueRain.reduce((accumulator, total) => accumulator + total);     //  Рахуємо клітинки з водою
+    return isValueRain.reduce((accumulator, total) => accumulator + total, 0);     //  Рахуємо клітинки з водою
 }
 
-getSumRain(input)
-getSumRain(input1)
-getSumRain(input2)
-getSumRain(input3)
-getSumRain(input4)
-getSumRain(input5)
-getSumRain(input6)
+getSumRain(input);
+getSumRain(input1);
+getSumRain(input2);
+getSumRain(input3);
+getSumRain(input4);
+getSumRain(input5);
+getSumRain(input6);
