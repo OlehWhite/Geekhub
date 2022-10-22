@@ -96,7 +96,7 @@ const getSumRain = (isArray) => {
         isValueRain = []
 
     maxLeftArray.map((element, index) => {      // сортуємо масив із ліва направо (maxLeft)
-        if (sumFirstArray.length === 0) {     // Якщо масив пустий перший елемент в новий масив
+        if (sumFirstArray.length === 0) {     // Якщо масив пустий перший елемент пушим в новий масив
             sumFirstArray.push(maxLeftArray[index])
         }
         if (sumFirstArray.length !== 0) {     // Якщо масив не пустий
@@ -106,7 +106,7 @@ const getSumRain = (isArray) => {
             if (maxLeftArray[index] >= maxLeftArray[index + 1]) {   // Порівнює кожний елемент масива
                 sumFirstArray.push(maxLeftArray[index])
             } else {
-                if (sumFirstArray[sumFirstArray.length - 1] === 0) {    // Порвінюємо, чи останній елемент в новому масиві не рівний 0
+                if (sumFirstArray[sumFirstArray.length - 1] === 0) {    // Порівнюємо, чи останній елемент в новому масиві не рівний 0
                     sumFirstArray.push(maxLeftArray[index])
                 }
             }
