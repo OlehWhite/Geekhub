@@ -96,44 +96,26 @@ const getSumRain = (isArray) => {
         isValueRain = []
 
     maxLeftArray.map((element, index) => {      // сортуємо масив із ліва направо (maxLeft)
-        if (sumFirstArray.length === 0) {     // Якщо масив пустий перший елемент пушим в новий масив
+        if (sumFirstArray.length !== 0 && maxLeftArray[index] === 0 && maxLeftArray[index] >= maxLeftArray[index + 1]) {
             sumFirstArray.push(maxLeftArray[index])
         }
-        if (sumFirstArray.length !== 0) {     // Якщо масив не пустий
-            if (maxLeftArray[index] === 0) {    // Перевіряємо, чи рівний елемент нулю
-                sumFirstArray.push(maxLeftArray[index])
-            }
-            if (maxLeftArray[index] >= maxLeftArray[index + 1]) {   // Порівнює кожний елемент масива
-                sumFirstArray.push(maxLeftArray[index])
-            } else {
-                if (sumFirstArray[sumFirstArray.length - 1] === 0) {    // Порівнюємо, чи останній елемент в новому масиві не рівний 0
-                    sumFirstArray.push(maxLeftArray[index])
-                }
-            }
-        }
+
+        sumFirstArray.push(maxLeftArray[index])
         maxLeft.push(Math.max(...sumFirstArray))
+
         return maxLeft
     })
     maxLeft.pop()   // Вирівнюємо краї наших скал
     maxLeft.unshift(0)  // Вирівнюємо краї наших скал додаючи 0 на початок
 
     maxRightArray.reverse().map((element, index) => {      // Створюємо такий самий масив тільки з права наліво (maxRight) за допомогою reverse()
-        if (sumSecondArray.length === 0) {
+        if (sumSecondArray.length !== 0 && maxRightArray[index] === 0 && maxRightArray[index] >= maxRightArray[index + 1]) {
             sumSecondArray.push(maxRightArray[index])
         }
-        if (sumSecondArray.length !== 0) {
-            if (maxRightArray[index] === 0) {
-                sumSecondArray.push(maxRightArray[index])
-            }
-            if (maxRightArray[index] >= maxRightArray[index + 1]) {
-                sumSecondArray.push(maxRightArray[index])
-            } else {
-                if (sumSecondArray[sumSecondArray.length - 1] === 0) {
-                    sumSecondArray.push(maxRightArray[index])
-                }
-            }
-        }
+
+        sumSecondArray.push(maxRightArray[index])
         maxRight.push(Math.max(...sumSecondArray))
+
         return maxRight
     })
     maxRight.unshift(0)     // Вирівнюємо краї наших скал додаючи 0 на початок
@@ -154,4 +136,4 @@ const getSumRain = (isArray) => {
     return isValueRain.reduce((accumulator, total) => accumulator + total, 0);     //  Рахуємо клітинки з водою
 }
 
-getSumRain(input);
+console.log(getSumRain(input));
