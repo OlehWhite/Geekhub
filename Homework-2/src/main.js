@@ -136,4 +136,4 @@ const getSumRain = (isArray) => {
     return isValueRain.reduce((accumulator, total) => accumulator + total, 0);     //  Рахуємо клітинки з водою
 }
 
-console.log(getSumRain(input));
+getSumRain(input);
