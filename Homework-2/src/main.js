@@ -95,23 +95,23 @@ const getSumRain = (isArray) => {
         minLR = [],
         isValueRain = []
 
-    maxLeftArray.map((element, index) => {      // сортуємо масив із ліва направо (maxLeft)
-        sumFirstArray.push(maxLeftArray[index])
+    maxLeftArray.map((element) => {      // сортуємо масив із ліва направо (maxLeft)
+        sumFirstArray.push(element)
         maxLeft.push(Math.max(...sumFirstArray))
         return maxLeft
     })
     maxLeft.pop()   // Вирівнюємо лівий край скали першого масива
     maxLeft.unshift(0)  // Вирівнюємо правий край скали першого масива
 
-    maxRightArray.reverse().map((element, index) => {      // Створюємо такий самий масив тільки з права наліво (maxRight) за допомогою reverse()
-        sumSecondArray.push(maxRightArray[index])
+    maxRightArray.reverse().map((element) => {      // Створюємо такий самий масив тільки з права наліво (maxRight) за допомогою reverse()
+        sumSecondArray.push(element)
         maxRight.push(Math.max(...sumSecondArray))
         return maxRight
     })
     maxRight.unshift(0)     // Вирівнюємо лівий край скали другого масива
     maxRight.reverse()      // Розвертаємо, щоб коретно пройшли наступні операціїї
 
-    for (let i = 0; i < maxLeft.length; i++) {       // Рахуємо мінімум в який може набратися вода
+    for (let i = 0; i < maxLeft.length || i < maxRight.length; i++) {       // Рахуємо мінімум в який може набратися вода
         minLR.push(Math.min(maxLeft[i], maxRight[i]));
     }
 
