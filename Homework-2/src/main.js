@@ -96,37 +96,26 @@ const getSumRain = (isArray) => {
         isValueRain = []
 
     maxLeftArray.map((element, index) => {      // сортуємо масив із ліва направо (maxLeft)
-        if (sumFirstArray.length !== 0 && maxLeftArray[index] === 0 && maxLeftArray[index] >= maxLeftArray[index + 1]) {
-            sumFirstArray.push(maxLeftArray[index])
-        }
-
         sumFirstArray.push(maxLeftArray[index])
         maxLeft.push(Math.max(...sumFirstArray))
-
         return maxLeft
     })
-    maxLeft.pop()   // Вирівнюємо краї наших скал
-    maxLeft.unshift(0)  // Вирівнюємо краї наших скал додаючи 0 на початок
+    maxLeft.pop()   // Вирівнюємо лівий край скали першого масива
+    maxLeft.unshift(0)  // Вирівнюємо правий край скали першого масива
 
     maxRightArray.reverse().map((element, index) => {      // Створюємо такий самий масив тільки з права наліво (maxRight) за допомогою reverse()
-        if (sumSecondArray.length !== 0 && maxRightArray[index] === 0 && maxRightArray[index] >= maxRightArray[index + 1]) {
-            sumSecondArray.push(maxRightArray[index])
-        }
-
         sumSecondArray.push(maxRightArray[index])
         maxRight.push(Math.max(...sumSecondArray))
-
         return maxRight
     })
-    maxRight.unshift(0)     // Вирівнюємо краї наших скал додаючи 0 на початок
-    maxRight.pop()      // Вирівнюємо краї наших скал
+    maxRight.unshift(0)     // Вирівнюємо лівий край скали другого масива
     maxRight.reverse()      // Розвертаємо, щоб коретно пройшли наступні операціїї
 
-    for (let i = 0; i < maxLeft.length || i < maxRight.length ; i++) {       // Рахуємо мінімум в який може набратися вода
+    for (let i = 0; i < maxLeft.length; i++) {       // Рахуємо мінімум в який може набратися вода
         minLR.push(Math.min(maxLeft[i], maxRight[i]));
     }
 
-    for (let i = 0; i < input.length || i < minLR.length; i++) {        //  Знаходимо заповнені водою клітинки
+    for (let i = 0; i < input.length; i++) {        //  Знаходимо заповнені водою клітинки
         if (minLR[i] >= input[i]) {
             const result = minLR[i] - input[i]
             isValueRain.push(result)
