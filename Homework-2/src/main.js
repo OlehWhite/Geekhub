@@ -21,9 +21,6 @@ reverseString(null);
 //      a. Приймає число від 1-10. Перевірити що число не більше 10 і не менше 1, якщо не відповідає повернути помилку new Error(‘Please provide number in range 0 - 10’)
 //      b. Якщо передали не число. Помилка return new Error(“Please provide a valid number”);
 //      c. Далі функція генерує рандомне число від 1 до 10 і якщо задане число правильне повертає стрінгу ‘You Win!’, якщо не правильно ‘You are lose, your number is 8, the random number is 5’
-const isUserNumber = Number(prompt('Let\'s play the guess a number game!\n' +
-    'Give one whole number from 1 to 10!', 5));     // Запитуємо в користувача число
-
 const guessTheNumber = (isUserNumber) => {
 
     const isRandomNumber = Math.floor(Math.random() * (10 - 1 + 1) + 1);    //  Створюємо рандомне число від 1 до 10
@@ -37,12 +34,12 @@ const guessTheNumber = (isUserNumber) => {
     }
 
     if (isRandomNumber === isUserNumber) {
-        alert('You Win!')
+        return 'You Win!'
     } else {
-        alert(`You are lose, your number is ${isUserNumber}, the random number is ${isRandomNumber}`);
+        return `You are lose, your number is ${isUserNumber}, the random number is ${isRandomNumber}`
     }
 }
-guessTheNumber(isUserNumber);
+guessTheNumber(5);
 
 
 // 4. Є масив чисел (додатних, відʼємних, і впереміш). Потрібно знайти min, max, sum. Не можна використовувати методи масивів або обʼєкту Math, а тільки цикли for і while. Приклади масивів:
