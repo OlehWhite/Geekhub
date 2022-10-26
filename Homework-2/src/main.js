@@ -71,14 +71,6 @@ getMinMaxSumNumber([1,undefined,3,5,-3]);
 getMinMaxSumNumber([1,NaN,3,5,-3]);
 
 // // 5. Приклади:
-const input = [2, 5, 1, 3, 1, 2, 1, 7, 7, 6]; // 17
-const input1 = [2, 1, 5, 0, 3, 4, 7, 2, 3, 1, 0]; // 10
-const input2 = [7, 0, 1, 3, 4, 1, 2, 1] // 9
-const input3 = [2, 1, 5, 0, 3, 4, 7, 2, 3, 1, 0] // 10
-const input4 = [2, 2, 1, 2, 2, 3, 0, 1, 2] // 4
-const input5 = [2, 1, 5, 0, 3, 4, 7, 2, 3, 1, 8] // 24
-const input6 = [2, 2, 2, 2, 2] // 0
-
 const getSumRain = (isArray) => {
     const input = [...isArray]
     const maxLeftArray = [...isArray];
@@ -114,12 +106,12 @@ const getSumRain = (isArray) => {
 
     for (let i = 0; i < input.length; i++) {        //  Знаходимо заповнені водою клітинки
         if (minLR[i] >= input[i]) {
-            const result = minLR[i] - input[i]
-            isValueRain.push(result)
+            const resultValueRain = minLR[i] - input[i]
+            isValueRain.push(resultValueRain)
         }
     }
 
     return isValueRain.reduce((accumulator, total) => accumulator + total, 0);     //  Рахуємо клітинки з водою
 }
 
-getSumRain(input);
+getSumRain( [2, 5, 1, 3, 1, 2, 1, 7, 7, 6]);
