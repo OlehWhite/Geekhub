@@ -22,8 +22,7 @@ reverseString(null);
 //      b. Якщо передали не число. Помилка return new Error(“Please provide a valid number”);
 //      c. Далі функція генерує рандомне число від 1 до 10 і якщо задане число правильне повертає стрінгу ‘You Win!’, якщо не правильно ‘You are lose, your number is 8, the random number is 5’
 const guessTheNumber = (isUserNumber) => {
-    let showGameResult = '';
-
+    let showGameResult;
     const isRandomNumber = Math.floor(Math.random() * 10 + 1);    //  Створюємо рандомне число від 1 до 10
 
     if (isNaN(isUserNumber)) {
