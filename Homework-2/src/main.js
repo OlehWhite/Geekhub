@@ -1,8 +1,8 @@
 // 1. Створити функцію multiple() яка може приймати не обмежену кількість аргументів, та перемножує їх
-const multiple = (Arg) => {
+const multiple = (...Arg) => {
     return Arg.reduce((element, total) => element * total)
 }
-multiple([2, 5])
+multiple(2, 5, 2, 3, 4)
 
 // 2. Створити фунцію reverseString яка приймає 1 аргумент будь-якого типу, і розвертає його.
 // Наприклад: ‘test’ -> `tset`, undefined -> ‘denifednu’
@@ -22,25 +22,27 @@ reverseString(null);
 //      b. Якщо передали не число. Помилка return new Error(“Please provide a valid number”);
 //      c. Далі функція генерує рандомне число від 1 до 10 і якщо задане число правильне повертає стрінгу ‘You Win!’, якщо не правильно ‘You are lose, your number is 8, the random number is 5’
 const guessTheNumber = (isUserNumber) => {
+    let showGameResult = '';
 
-    const isRandomNumber = Math.floor(Math.random() * (10 - 1 + 1) + 1);    //  Створюємо рандомне число від 1 до 10
+    const isRandomNumber = Math.floor(Math.random() * 10 + 1);    //  Створюємо рандомне число від 1 до 10
 
     if (isNaN(isUserNumber)) {
-        throw new Error('Please provide a valid number:');      // Якщо користувач ввів не число
+        return new Error('Please provide a valid number:');      // Якщо користувач ввів не число
     }
 
     if (isUserNumber <= 1 || isUserNumber > 10) {
-        throw new Error('Please provide number in range 1 - 10');       // Якщо число більше 10 або менше 1
+        return new Error('Please provide number in range 1 - 10');       // Якщо число більше 10 або менше 1
     }
 
     if (isRandomNumber === isUserNumber) {
-        return 'You Win!'
+        showGameResult = 'You Win!'
     } else {
-        return `You are lose, your number is ${isUserNumber}, the random number is ${isRandomNumber}`
+        showGameResult = `You are lose, your number is ${isUserNumber}, the random number is ${isRandomNumber}`
     }
+
+    return showGameResult
 }
 guessTheNumber(5);
-
 
 // 4. Є масив чисел (додатних, відʼємних, і впереміш). Потрібно знайти min, max, sum. Не можна використовувати методи масивів або обʼєкту Math, а тільки цикли for і while. Приклади масивів:
 const getMinMaxSumNumber = (minMaxSum) => {
