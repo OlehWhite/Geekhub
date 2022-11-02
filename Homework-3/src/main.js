@@ -230,11 +230,5 @@ let sum = function (number) {
     return plusOperation;
 }
 
-const res = sum(1)(2)(3); // 6
-console.log(res.toString())
-
 const res2 = sum(2)(3)(4); // 9
-console.log(res2.toString())
-
-const res3 = sum(1)(2)(4) // 7
-console.log(res3.toString())
+res2.toString()
