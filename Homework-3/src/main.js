@@ -208,30 +208,33 @@ const isModuleCalc = (function () {
     }
 })();
 
-isModuleCalc.setFirstNumber(10);
-isModuleCalc.isPlusOperation(5);
-isModuleCalc.isMultipleOperation(2);
-isModuleCalc.getTotalResultCalc()
+isModuleCalc.setFirstNumber(10);    // значення = 10
+isModuleCalc.isPlusOperation(5);    // значення += 5
+isModuleCalc.isMultipleOperation(2);    // значення *= 2
+isModuleCalc.getTotalResultCalc()   // вивести в консоль 30
 
-isModuleCalc.setFirstNumber(10).toExtent(2).getTotalResultCalc()
+isModuleCalc.setFirstNumber(10).toExtent(2).getTotalResultCalc()    // 100
 
 // 6.
 // Реалізувати функцію sum.
-const sum = (number) => {
+let sum = function (number) {
     let total = number;
 
-    function setPlus(nextNum) {
-        total += nextNum;
-        return setPlus;
+    const plusOperation = (nextNumber) => {
+        total += nextNumber;
+        return plusOperation;
     }
 
-    setPlus.toString = function() {
-        return total;
-    };
+    plusOperation.toString = () => total;
 
-    return setPlus;
+    return plusOperation;
 }
 
-sum(1)(2)(3) // 6
-sum(2)(3)(4) // 9
-sum(1)(2)(3) // 7
+const res = sum(1)(2)(3); // 6
+console.log(res.toString())
+
+const res2 = sum(2)(3)(4); // 9
+console.log(res2.toString())
+
+const res3 = sum(1)(2)(4) // 7
+console.log(res3.toString())
