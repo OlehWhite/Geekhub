@@ -46,8 +46,8 @@ console.log(validMethodReturnElement(['abc', '123'], validCallbackReverseElement
 
 // 3.1. Створити об'єкт який описує ширину і висоту прямокутника, а також вираховує площу фігури
 const rectangle = {
-    width: 321,
-    height: 74,
+    width: 30,
+    height: 15,
     getSquare() {
         return 0.5 * this.width * this.height
     }
@@ -89,7 +89,7 @@ const numerator = {
 }
 
 numerator.double().plusOne().plusOne().minusOne()
-numerator.value;
+numerator.value;    // 3
 
 // 3.4. Змінити функції getElementHeight таким способом, щоб можна було викликати getElementHeight і отримати 25
 const element = {
@@ -105,11 +105,11 @@ getElementHeight();   //25
 // 4. Стрілочні функції
 // Переробити функцію на стрілочну
 const convertToObject = num => {
-    const obj = {
+    const object = {
         value: num,
         isOdd: Boolean(num % 2)
     };
-    return obj
+    return object
 }
 convertToObject(10);    // { value: 10, isOdd: false }
 
@@ -137,7 +137,8 @@ const multiplyMarker = (firstNumber) => {
 }
 
 const multiply = multiplyMarker(num => num * 2)
-multiply(2);
+multiply(2);   // 4
+multiply(3);   // 12
 
 // 5.3.
 //     Створити модуль який може працювати з рядком і має методи
@@ -166,9 +167,9 @@ const isModule = (function () {
 })();
 
 isModule.setLine('Oleh');     // Додаємо
-isModule.showLine();   // Виводимо
-isModule.getLength();  // Виводимо довжину
-isModule.reverse();    // Розвертаємо
+isModule.showLine();   // Oleh
+isModule.getLength();  // 4
+isModule.reverse();    // helO
 
 // 5.4
 // Створити модуль калькулятор, який може додавати, віднімати, множити, ділити, і приводити до ступеню(степени).
@@ -217,18 +218,14 @@ isModuleCalc.setFirstNumber(10).toExtent(2).getTotalResultCalc()    // 100
 
 // 6.
 // Реалізувати функцію sum.
-let sum = function (number) {
-    let total = number;
-
-    const plusOperation = (nextNumber) => {
-        total += nextNumber;
-        return plusOperation;
+const sum = (firstNum) => {
+    return function (secondNum) {
+        return function (thirdNum) {
+            return firstNum + secondNum + thirdNum
+        }
     }
-
-    plusOperation.toString = () => total;
-
-    return plusOperation;
 }
 
-const res2 = sum(2)(3)(4); // 9
-res2.toString()
+sum(1)(2)(3); // 6
+sum(2)(3)(4); // 9
+sum(1)(2)(4); // 7
