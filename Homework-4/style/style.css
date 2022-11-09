@@ -1,15 +1,179 @@
 body {
-    background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
-    display: flex;
+    background: linear-gradient(90deg, #e7d5ff 0%, #515adae3 100%);
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
 }
-.div-task {
-    text-align: center;
-    background-color: #5386f5;
-}
-.p-task {
-    display: inline-block;
-}
-.container {
-    max-width: 800px;
+
+.wrapper {
+    max-width: 1200px;
     margin: 0 auto;
+    text-align: center;
+}
+
+/** Title and Images*/
+.container {
+    border-radius: 25px;
+    background: #ffffff54;
+    max-width: 640px;
+    margin: 40px auto;
+    padding: 10px 10px 50px 10px;
+}
+
+.container-section {
+    display: flex;
+    justify-content: center;
+}
+
+.section_h1 {
+    font-size: 35px;
+    margin-right: 10px;
+}
+
+.section_img {
+    width: 50px;
+}
+
+/** Input and three buttons: Add, SOrt A-Z, Sort Time*/
+.container-task {
+    margin: 10px;
+}
+
+.container-input {
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    border-bottom: 1px solid white;
+    color: #363636;
+    outline:none;
+    font-size: 20px;
+}
+
+input:focus {
+    outline-color:#f00000;
+}
+
+/** Task block */
+.div-task {
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    max-width: 505px;
+    background-color: #6b75f152;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 15px;
+    transition: all .5s;
+}
+
+.div-task:hover {
+    box-shadow: 0 0 20px #9d9a9a;;
+    transition: all .5s;
+}
+
+/** All button */
+.p-task,
+.p-task-done {
+    font-size: 20px;
+    color: azure;
+    max-width: 425px;
+    word-break: break-all;
+}
+
+.p-task-done {
+    text-decoration: line-through;
+    color: gray;
+}
+
+.btn-task,
+.button,
+.btn-done,
+.btn-remove {
+    width: 70px;
+    height: 30px;
+    background-color: #0000002b;
+    border: 1px solid #f0ffff85;
+    border-radius: 10px;
+    font-size: 16px;
+    color: azure;
+    font-family: 'Ubuntu', sans-serif;
+    transition: all .2s;
+    margin: 1px;
+}
+
+.btn-task:active,
+.button:active,
+.btn-done:active,
+.btn-remove:active {
+    background-color: #00000087;
+    transition: all .2s;
+}
+
+.big_btn {
+    width: 100px;
+}
+
+.btn-task:hover,
+.btn-done:hover,
+.btn-remove:hover,
+.button:hover {
+    border: 1px solid #00000029;
+    transition: all .4s;
+}
+
+.task-btn_btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.div-task-done {
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    max-width: 505px;
+    background-color: #94959599;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 15px;
+    transition: all .5s;
+}
+
+.btn-done-silver {
+    width: 70px;
+    height: 30px;
+    color: slategray;
+    font-family: 'Ubuntu', sans-serif;
+    transition: all .2s;
+    background-color: rgba(242, 246, 255, 0.51);
+    border: 1px solid azure;
+    border-radius: 10px;
+    font-size: 16px;
+    margin: 1px;
+}
+
+/** Block time*/
+.div-time {
+    display: flex;
+    color: dimgrey;
+    flex-direction: column;
+    align-items: start;
+    font-size: 14px;
+}
+
+/** Text in the task*/
+p[contenteditable]:focus-visible{
+    word-break: break-all;
+    outline: #e1e1e1
+}
+
+@media screen and (max-width: 576px) {
+    .container-input {
+        display: block;
+        margin: 0 auto 40px auto;
+    }
+    .section_add {
+        margin-bottom: 40px;
+    }
 }
