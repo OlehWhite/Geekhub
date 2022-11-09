@@ -46,10 +46,10 @@ console.log(validMethodReturnElement(['abc', '123'], validCallbackReverseElement
 
 // 3.1. Створити об'єкт який описує ширину і висоту прямокутника, а також вираховує площу фігури
 const rectangle = {
-    width: 30,
-    height: 15,
+    width: 4,
+    height: 2,
     getSquare() {
-        return 0.5 * this.width * this.height
+        return this.width * this.height
     }
 };
 
@@ -67,8 +67,8 @@ const price = {
     }
 }
 
-price.getPrice();
-price.getPriceWithDiscount();
+console.log(price.getPrice());
+console.log(price.getPriceWithDiscount());
 
 // 3.3. Створити об'єкт 'чисельник' у якого є числове значення і методи 'подвоїти', 'додати один', 'відняти один'.
 // Методи можна викликати через крапку щоб був ланцюг виклику
