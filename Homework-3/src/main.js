@@ -56,6 +56,7 @@ const rectangle = {
 rectangle.getSquare()
 
 // 3.2. Створити об'єкт у якого буде ціна товара і два метода: для отримання ціни і для отримання ціни з урахуванням знижки
+// 3.2. Створити об'єкт у якого буде ціна товара і два метода: для отримання ціни і для отримання ціни з урахуванням знижки
 const price = {
     price: 10,
     discount: '15%',
@@ -63,33 +64,33 @@ const price = {
         return this.price
     },
     getPriceWithDiscount() {
-        return this.price - parseInt(this.discount) / 10
+        const percent = this.price * (parseInt(this.discount) / 100)
+        return this.price - percent
     }
 }
-
-console.log(price.getPrice());
-console.log(price.getPriceWithDiscount());
+price.getPrice();
+price.getPriceWithDiscount();
 
 // 3.3. Створити об'єкт 'чисельник' у якого є числове значення і методи 'подвоїти', 'додати один', 'відняти один'.
 // Методи можна викликати через крапку щоб був ланцюг виклику
 const numerator = {
     value: 1,
     double() {
-        this.value = this.value + this.value;
+        this.value++;
         return this
     },
     plusOne() {
-        this.value = this.value + 1;
+        this.value += 1;
         return this
     },
     minusOne() {
-        this.value = this.value - 1;
+        this.value -= 1;
         return this
     }
 }
 
-numerator.double().plusOne().plusOne().minusOne()
-numerator.value;    // 3
+numerator.double().plusOne().plusOne().minusOne();
+numerator.value;   // 3
 
 // 3.4. Змінити функції getElementHeight таким способом, щоб можна було викликати getElementHeight і отримати 25
 const element = {
@@ -104,13 +105,7 @@ getElementHeight();   //25
 
 // 4. Стрілочні функції
 // Переробити функцію на стрілочну
-const convertToObject = num => {
-    const object = {
-        value: num,
-        isOdd: Boolean(num % 2)
-    };
-    return object
-}
+const convertToObject = num => object = { value: num, isOdd: Boolean(num % 2), };
 convertToObject(10);    // { value: 10, isOdd: false }
 
 // 5. Замикання
@@ -125,14 +120,14 @@ minus(10)(6); // 4
 // Створити функція яка множить і вміє запам'ятовувати результат між викликами
 const multiplyMarker = (firstNumber) => {
     let hasCalled = false;
-    let isFirstOperation;
+    let firstOperation;
 
     return function (arg) {
-        if (hasCalled) return isFirstOperation *= arg;
+        if (hasCalled) return firstOperation *= arg;
 
         hasCalled = true;
-        isFirstOperation = firstNumber(arg)
-        return isFirstOperation
+        firstOperation = firstNumber(arg)
+        return firstOperation
     }
 }
 
@@ -142,7 +137,7 @@ multiply(3);   // 12
 
 // 5.3.
 //     Створити модуль який може працювати з рядком і має методи
-const isModule = (function () {
+const module = (function () {
     let privateResult = '';
 
     function showStr(val) {
@@ -166,15 +161,15 @@ const isModule = (function () {
 
 })();
 
-isModule.setLine('Oleh');     // Додаємо
-isModule.showLine();   // Oleh
-isModule.getLength();  // 4
-isModule.reverse();    // helO
+module.setLine('Oleh');     // Додаємо
+module.showLine();   // Oleh
+module.getLength();  // 4
+module.reverse();    // helO
 
 // 5.4
 // Створити модуль калькулятор, який може додавати, віднімати, множити, ділити, і приводити до ступеню(степени).
 // (Значення повинне зберігатись в змінній не в this)
-const isModuleCalc = (function () {
+const moduleCalc = (function () {
     let totalResultCalc = 0;
     let hasCalled = false;
 
@@ -189,32 +184,32 @@ const isModuleCalc = (function () {
             firstValue(firstNum)
 
             hasCalled = true
-            return isModuleCalc
+            return moduleCalc
         },
-        isPlusOperation: function (number) {
+        plusOperation: function (number) {
             totalResultCalc += number
-            return isModuleCalc
+            return moduleCalc
         },
-        isMultipleOperation: function (number) {
+        multipleOperation: function (number) {
             totalResultCalc *= number
-            return isModuleCalc
+            return moduleCalc
         },
         getTotalResultCalc: function () {
             console.log(totalResultCalc);
         },
         toExtent: function (number) {
             totalResultCalc = Math.pow(totalResultCalc, number)
-            return isModuleCalc
+            return moduleCalc
         }
     }
 })();
 
-isModuleCalc.setFirstNumber(10);    // значення = 10
-isModuleCalc.isPlusOperation(5);    // значення += 5
-isModuleCalc.isMultipleOperation(2);    // значення *= 2
-isModuleCalc.getTotalResultCalc()   // вивести в консоль 30
+moduleCalc.setFirstNumber(10);    // значення = 10
+moduleCalc.plusOperation(5);    // значення += 5
+moduleCalc.multipleOperation(2);    // значення *= 2
+moduleCalc.getTotalResultCalc()   // вивести в консоль 30
 
-isModuleCalc.setFirstNumber(10).toExtent(2).getTotalResultCalc()    // 100
+moduleCalc.setFirstNumber(10).toExtent(2).getTotalResultCalc()    // 100
 
 // 6.
 // Реалізувати функцію sum.
