@@ -185,8 +185,8 @@ body {
 }
 
 .image__channel {
-    width: 421px;
-    height: 310px;
+    width: 400px;
+    height: 291px;
 }
 
 .image__become {
@@ -233,7 +233,7 @@ body {
 }
 
 .info__link::after {
-    content: url("../images/Right menu Arrow.svg");
+    content: url("../images/Right-menu-Arrow.svg");
     position: absolute;
     margin-left: 10px;
 }
