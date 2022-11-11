@@ -1,0 +1,28 @@
+body {
+    background: rgb(253,187,45);
+    background: linear-gradient(0deg, rgba(253,187,45,1) 0%, rgba(34,145,195,1) 100%);
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    font-size: 24px;
+}
+.wrapper {
+    text-align:center;
+}
+.input {
+    margin-top: 400px;
+    width: 600px;
+    height: 50px;
+    font-size: 24px;
+    background-color: rgb(255 255 255 / 19%)
+}
+.p-default {
+    display: none;
+}
+.p-text {
+    background-color: rgba(255, 255, 255, 0.35);
+    width: 607px;
+    text-align: start;
+    margin: auto;
+    padding: 15px 0;
+}

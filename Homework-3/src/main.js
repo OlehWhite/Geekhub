@@ -105,7 +105,7 @@ getElementHeight();   //25
 
 // 4. Стрілочні функції
 // Переробити функцію на стрілочну
-const convertToObject = num => object = { value: num, isOdd: Boolean(num % 2), };
+const convertToObject = num => ({ value: num, isOdd: Boolean(num % 2), });
 convertToObject(10);    // { value: 10, isOdd: false }
 
 // 5. Замикання
