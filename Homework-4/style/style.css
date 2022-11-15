@@ -168,6 +168,14 @@ p[contenteditable]:focus-visible{
     outline: #e1e1e1
 }
 
+.hint {
+    /*background-color: #5386f5;*/
+}
+
+.active {
+    /*background-color: #000C2D;*/
+}
+
 @media screen and (max-width: 576px) {
     .container-input {
         display: block;

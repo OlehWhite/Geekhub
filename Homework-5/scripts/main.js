@@ -1,14 +1,3 @@
-// №1
-// const input = document.querySelector('.input');
-// const p = document.querySelector('.p-default')
-//
-// input.addEventListener('keydown', () => {
-//     p.className = 'p-text';
-//     p.innerHTML = input.value;
-//     if (input.value.length === 0) p.className = 'p-default'
-//     setTimeout(() => p.className = 'p-default', 1000);
-// })
-
 // №2
 // 1. isPrime
 const isPrime = (number) => {
@@ -19,7 +8,6 @@ const isPrime = (number) => {
     }
     return true
 }
-
 isPrime(17)
 
 // 2. factorial
@@ -33,10 +21,6 @@ const factorial = (number) => {
 factorial(6);
 
 // 3. fib - Returns the nth Fibonacci number.
-// fib(0)                              // 0
-// fib(1)                              // 1
-// fib(10)                             // 55
-// fib(20)                             // 6765
 const fib = (number) => {
     const total = [0, 1];
     for (let i = 2; i <= number; i++) {
@@ -66,7 +50,6 @@ isSorted([-Infinity, -5, 0, 3, 9])  // true
 // 5. reverse
 const reverse = (str) => {
     str = String(str);
-
     let result = ''
     for (let i = str.length - 1; i >= 0; i--) {
         result += str[i]
@@ -113,42 +96,40 @@ const missing = (array) => {
 missing([5, 1, 4, 2]);
 
 // 9. isBalanced - Takes a string and returns true or false indicating whether its curly braces are balanced.
-// isBalanced('}{')                      // false
-// isBalanced('{{}')                     // false
-// isBalanced('{}{}')                    // false
-// isBalanced('foo { bar { baz } boo }') // true
-// isBalanced('foo { bar { baz }')       // false
-// isBalanced('foo { bar } }')           // false
-
-
 const isBalanced = (str) => {
-    str = str.replace(/[a-zа-яё\s]/gi, '')
-    let brc = {
-        '}': '{',
-    };
-
-    let stack = [];
+    str = str.replace(/[a-zа-яё\s0-9.,*+?^$()|[\]/\\]/gi, '')
+    let res = [];
     for (let i = 0; i < str.length; i++) {
-        if (isClosedBrc(str[i])) {
-            if (brc[str[i]] !== stack.pop()) {
-                return false
+        res.push(str[i])
+    }
+    if (res.length > 0) {
+        for (let i = 0; i < res.length + 1; i++) {
+            if (res[0] === '{' && res[res.length - 1] === '}') {
+                res.shift()
+                res.pop()
             }
-        } else {
-            stack.push(str[i]);
         }
     }
-    return stack.length === 0
+    return res.length === 0
 }
-
-const isClosedBrc = (char) => {
-    return ['}'].indexOf(char) > -1
-}
-
-// console.log(isBalanced('}{'));                      // false
-// console.log(isBalanced('{{}'));                     // false
-// console.log(isBalanced('{}{}'));                    // false
-// console.log(isBalanced('foo { bar { baz } boo }')); // true
-// console.log(isBalanced('foo { bar { baz }'));       // false
-// console.log(isBalanced('foo { bar } }'));           // false
+isBalanced('foosdfgsdfg { basa)(dfasdf,..,r { basdfsasm/df.msam/.as,mdf23(41az } 12341234...., }')      // true
 
 // №3 Matrix
+const spiralMatrixIII = (R, C, r0, c0) => {
+    let steps = 1;
+    const result = [];
+    const validate = (row, col) => {
+        if (row < 0 || col < 0 || row >= R || col >= C) return
+        result.push([row, col])
+    }
+    while (result.length < R * C) {
+        for (let i = 0; i < steps; i++) validate(r0, c0++)
+        for (let i = 0; i < steps; i++) validate(r0++, c0)
+        steps++
+        for (let i = 0; i < steps; i++) validate(r0, c0--)
+        for (let i = 0; i < steps; i++) validate(r0--, c0)
+        steps++
+    }
+    return result
+}
+spiralMatrixIII(R = 5, C = 6, r0 = 1, c0 = 4)
