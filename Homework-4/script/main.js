@@ -3,20 +3,18 @@ const createTask = document.querySelector('input');
 const buttonAdd = document.querySelector('.button');
 const buttonSortByTime = document.querySelector('.btn-sort-time');
 const buttonSortByAlphabet = document.querySelector('.btn-sort_A-Z');
-let items = document.querySelectorAll('.container-task #drag')
-let dragged = null;
 let toDoList = [];
 
 buttonAdd.addEventListener('click', () => {
     const content = createTask.value
     const data = new Date().toLocaleString()
     addToDo(content, data);  // створили таксу
-    dragAndDrop()
+    dragAndDrop(document.querySelector('.container-task'))
     createTask.value = '';   // прибрали все з інпута після створення таски
 })
 
 const addToDo = (content, data) => {
-    const div = document.createElement('div');
+    const li = document.createElement('li');
     const div1 = document.createElement('div');
     const div2 = document.createElement('div');
     const p = document.createElement('p');
@@ -38,8 +36,8 @@ const addToDo = (content, data) => {
     buttonDel.textContent = 'Del';
     buttonDone.textContent = 'Done';
 
-    div.id = 'drag';
-    div.className = 'div-task';
+    li.id = 'drag';
+    li.className = 'div-task';
     div1.className = 'div-time';
     div2.className = 'task-btn_btn';
     p.className = 'p-task';
@@ -47,13 +45,13 @@ const addToDo = (content, data) => {
     buttonDel.className = 'btn-task';
     buttonDone.className = 'btn-done';
 
-    div.setAttribute('draggable', 'true')
+    li.setAttribute('draggable', 'true')
 
-    div.append(div1, div2);
+    li.append(div1, div2);
     div1.prepend(p, time);
     div2.prepend(buttonDone, buttonDel);
 
-    containerTask.prepend(div);
+    containerTask.prepend(li);
 
     const createItemObj = (arr) => {
         const itemObj = {};
@@ -67,7 +65,7 @@ const addToDo = (content, data) => {
 
     createItemObj(toDoList)
 
-    ButtonDoneAndDel(div, div2, p, buttonDel, buttonDone);
+    ButtonDoneAndDel(li, div2, p, buttonDel, buttonDone);
     redactTask(p)
 }
 
@@ -99,7 +97,7 @@ function redactTask(p) {
     }
 }
 
-function ButtonDoneAndDel(div, div2, p, buttonDel, buttonDone) {
+function ButtonDoneAndDel(li, div2, p, buttonDel, buttonDone) {
     buttonDone.addEventListener('click', () => {
         for (let i = 0; i < toDoList.length; i++) {
             if (buttonDone.id === toDoList[i].id) {
@@ -108,7 +106,7 @@ function ButtonDoneAndDel(div, div2, p, buttonDel, buttonDone) {
         }
 
         // Змінюю стилі кнопки "DONE"
-        div.className = 'div-task-done';
+        li.className = 'div-task-done';
         p.className = 'p-task-done';
         p.setAttribute('contenteditable', 'false');
         buttonDone.className = 'btn-done-silver';
@@ -118,14 +116,14 @@ function ButtonDoneAndDel(div, div2, p, buttonDel, buttonDone) {
         for (let i = 0; i < toDoList.length; i++) {
             if (buttonDel.id === toDoList[i].id) {
                 toDoList.splice(i, 1);
-                div.remove();
+                li.remove();
             }
         }
     });
 }
 
 const sortByAlphabetAndData = (time, data, id, done) => {
-    const newDiv = document.createElement('div');
+    const newLi = document.createElement('li');
     const newDiv1 = document.createElement('div');
     const newDiv2 = document.createElement('div');
     const newP = document.createElement('p');
@@ -143,30 +141,30 @@ const sortByAlphabetAndData = (time, data, id, done) => {
     newButtonDone.textContent = 'Done';
 
     if (done) {
-        newDiv.className = 'div-task-done';
+        newLi.className = 'div-task-done';
         newP.className = 'p-task-done';
         newButtonDone.className = 'btn-done-silver';
     } else {
-        newDiv.className = 'div-task';
+        newLi.className = 'div-task';
         newP.className = 'p-task';
         newButtonDone.className = 'btn-done';
     }
 
-    newDiv.id = 'drag';
+    newLi.id = 'drag';
     newDiv1.className = 'div-time';
     newDiv2.className = 'task-btn_btn';
     newTime.className = 'time-task'
     newButtonDel.className = 'btn-task';
 
-    newDiv.setAttribute('draggable', 'true')
+    newLi.setAttribute('draggable', 'true')
 
-    containerTask.append(newDiv);
-    newDiv.append(newDiv1, newDiv2);
+    containerTask.append(newLi);
+    newLi.append(newDiv1, newDiv2);
     newDiv1.prepend(newP, newTime);
 
     newDiv2.prepend(newButtonDone, newButtonDel);
-    ButtonDoneAndDel(newDiv, newDiv2, newP, newButtonDel, newButtonDone);
-    dragAndDrop(newDiv)
+    ButtonDoneAndDel(newLi, newDiv2, newP, newButtonDel, newButtonDone);
+    dragAndDrop(document.querySelector('.container-task'))
     redactTask(newP)
 }
 
@@ -196,38 +194,37 @@ const ButtonSortTime = () => {
 }
 ButtonSortTime();
 
-function dragAndDrop() {
-    items = document.querySelectorAll('#drag')
-    let current;
-
+function dragAndDrop(target) {
+    target.classList.add('slist');
+    let items = target.getElementsByTagName('li'), current = null;
     for (let i of items) {
         i.draggable = true;
-
         i.ondragstart = () => {
             current = i;
-        }
-
+            for (let it of items) {
+                if (it !== current) it.classList.add('hint');
+            }
+        };
         i.ondragenter = () => {
-            if (i !== current) { i.classList.add("active"); }
-        }
-
+            if (i !== current)  i.classList.add('active');
+        };
         i.ondragleave = () => {
-            i.classList.remove("active");
-        }
-
-        i.ondragend = () => { for (let it of items) {
-            it.classList.remove("active");
-        }}
-
+            i.classList.remove('active');
+        };
+        i.ondragend = () => {
+            for (let it of items) {
+                it.classList.remove('hint');
+                it.classList.remove('active');
+            }
+        };
         i.ondragover = (evt) => evt.preventDefault();
-
         i.ondrop = (evt) => {
             evt.preventDefault();
             if (i !== current) {
                 let currentpos = 0, droppedpos = 0;
                 for (let it = 0; it < items.length; it++) {
-                    if (current === items[it]) currentpos = it
-                    if (i === items[it]) droppedpos = it
+                    if (current === items[it]) currentpos = it;
+                    if (i === items[it]) droppedpos = it;
                 }
                 if (currentpos < droppedpos) {
                     i.parentNode.insertBefore(current, i.nextSibling);
@@ -235,6 +232,6 @@ function dragAndDrop() {
                     i.parentNode.insertBefore(current, i);
                 }
             }
-        }
+        };
     }
 }
