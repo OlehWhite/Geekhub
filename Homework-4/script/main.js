@@ -90,7 +90,6 @@ function redactTask(p) {
                 self.textContent = this.value;
                 for (let i = 0; i < toDoList.length; i++) {
                     if (p.id === toDoList[i].id) {
-                        console.log(toDoList[i].name = this.value)
                         toDoList[i].name = this.value
                     }
                 }
@@ -230,8 +229,11 @@ function dragAndDrop() {
                     if (current === items[it]) currentpos = it
                     if (i === items[it]) droppedpos = it
                 }
-                if (currentpos < droppedpos) i.parentNode.insertBefore(current, i.nextSibling);
-                else i.parentNode.insertBefore(current, i);
+                if (currentpos < droppedpos) {
+                    i.parentNode.insertBefore(current, i.nextSibling);
+                } else {
+                    i.parentNode.insertBefore(current, i);
+                }
             }
         }
     }
