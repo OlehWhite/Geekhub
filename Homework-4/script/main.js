@@ -3,7 +3,7 @@ const createTask = document.querySelector('input');
 const buttonAdd = document.querySelector('.button');
 const buttonSortByTime = document.querySelector('.btn-sort-time');
 const buttonSortByAlphabet = document.querySelector('.btn-sort_A-Z');
-let tasks = document.querySelectorAll('#drag')
+let items = document.querySelectorAll('.container-task #drag')
 let dragged = null;
 let toDoList = [];
 
@@ -11,6 +11,7 @@ buttonAdd.addEventListener('click', () => {
     const content = createTask.value
     const data = new Date().toLocaleString()
     addToDo(content, data);  // створили таксу
+    dragAndDrop()
     createTask.value = '';   // прибрали все з інпута після створення таски
 })
 
@@ -67,7 +68,6 @@ const addToDo = (content, data) => {
     createItemObj(toDoList)
 
     ButtonDoneAndDel(div, div2, p, buttonDel, buttonDone);
-    dragAndDrop()
     redactTask(p)
 }
 
@@ -90,6 +90,7 @@ function redactTask(p) {
                 self.textContent = this.value;
                 for (let i = 0; i < toDoList.length; i++) {
                     if (p.id === toDoList[i].id) {
+                        console.log(toDoList[i].name = this.value)
                         toDoList[i].name = this.value
                     }
                 }
@@ -183,7 +184,7 @@ const ButtonSortAZ = () => {
 }
 ButtonSortAZ()
 
-function ButtonSortTime() {
+const ButtonSortTime = () => {
     buttonSortByTime.addEventListener('click', () => {
         toDoList.sort((a, b) => a.time > b.time ? 1 : -1)
 
@@ -197,52 +198,41 @@ function ButtonSortTime() {
 ButtonSortTime();
 
 function dragAndDrop() {
-    tasks = document.querySelectorAll('#drag')
-    dragged = null;
+    items = document.querySelectorAll('#drag')
+    let current;
 
-    for (let i of tasks) {
-        i.addEventListener('dragstart', function () {
-            dragged = this;
-            for (const it of tasks) {
-                if (it !== dragged) it.classList.add('hint')
-            }
-        })
+    for (let i of items) {
+        i.draggable = true;
 
-        i.addEventListener('dragenter', function () {
-            if (this !== dragged) this.classList.add('active')
-        })
+        i.ondragstart = () => {
+            current = i;
+        }
 
-        i.addEventListener('dragleave', function () {
-            this.classList.remove('active')
-        })
+        i.ondragenter = () => {
+            if (i !== current) { i.classList.add("active"); }
+        }
 
-        i.addEventListener('dragEnd', function () {
-            for (const it of tasks) {
-                it.classList.remove('active')
-            }
-        })
+        i.ondragleave = () => {
+            i.classList.remove("active");
+        }
 
-        i.addEventListener('dragover', function (evt) {
-            evt.preventDefault()
-        })
+        i.ondragend = () => { for (let it of items) {
+            it.classList.remove("active");
+        }}
 
-        i.addEventListener('drop', function (evt) {
-            evt.preventDefault()
-            if (this !== dragged) {
-                let all = document.querySelectorAll('#drag'),
-                    draggedpos = 0, droppedpos = 0;
+        i.ondragover = (evt) => evt.preventDefault();
 
-                for (let it = 0; it < all.length; it++) {
-                    if (dragged === all[it]) draggedpos = it
-                    if (this === all[it]) droppedpos = it
+        i.ondrop = (evt) => {
+            evt.preventDefault();
+            if (i !== current) {
+                let currentpos = 0, droppedpos = 0;
+                for (let it = 0; it < items.length; it++) {
+                    if (current === items[it]) currentpos = it
+                    if (i === items[it]) droppedpos = it
                 }
-
-                if (draggedpos < droppedpos) {
-                    this.parentNode.insertBefore(dragged, this.nextSibling)
-                } else {
-                    this.parentNode.insertBefore(dragged, this)
-                }
+                if (currentpos < droppedpos) i.parentNode.insertBefore(current, i.nextSibling);
+                else i.parentNode.insertBefore(current, i);
             }
-        })
+        }
     }
 }
