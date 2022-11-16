@@ -19,6 +19,7 @@ const addToDo = (content, data) => {
     const div2 = document.createElement('div');
     const p = document.createElement('p');
     const time = document.createElement('time');
+    const img = document.createElement('img')
     const buttonDel = document.createElement('button');
     const buttonDone = document.createElement('button');
 
@@ -27,6 +28,7 @@ const addToDo = (content, data) => {
     const randomId = (Math.random() * 123.45).toFixed(2);
     buttonDone.id = randomId
     buttonDel.id = randomId
+    img.id = randomId
     p.id = randomId
     const objId = randomId
 
@@ -36,7 +38,6 @@ const addToDo = (content, data) => {
     buttonDel.textContent = 'Del';
     buttonDone.textContent = 'Done';
 
-    li.id = 'drag';
     li.className = 'div-task';
     div1.className = 'div-time';
     div2.className = 'task-btn_btn';
@@ -44,11 +45,14 @@ const addToDo = (content, data) => {
     time.className = 'time-task'
     buttonDel.className = 'btn-task';
     buttonDone.className = 'btn-done';
+    img.className = 'img-redact';
+
+    img.src = './images/redact-task.png'
 
     li.setAttribute('draggable', 'true')
 
     li.append(div1, div2);
-    div1.prepend(p, time);
+    div1.prepend(img, p, time);
     div2.prepend(buttonDone, buttonDel);
 
     containerTask.prepend(li);
@@ -65,39 +69,81 @@ const addToDo = (content, data) => {
 
     createItemObj(toDoList)
 
-    ButtonDoneAndDel(li, div2, p, buttonDel, buttonDone);
-    redactTask(p)
+    buttonDoneAndDel(li, div2, p, buttonDel, buttonDone, img);
+    redactTask(img, p)
 }
 
-function redactTask(p) {
-    let paragraph = document.querySelectorAll('.p-task')
+const sortByAlphabetAndData = (time, data, id, done) => {
+    const newLi = document.createElement('li');
+    const newDiv1 = document.createElement('div');
+    const newDiv2 = document.createElement('div');
+    const newP = document.createElement('p');
+    const newTime = document.createElement('time');
+    const newButtonDel = document.createElement('button');
+    const newButtonDone = document.createElement('button');
+    const newImg = document.createElement('img');
 
-    for (const paragraphElement of paragraph) {
-        paragraphElement.addEventListener('dblclick', function () {
-        let text = this.textContent;
-        this.textContent = '';
+    newButtonDel.id = id
+    newButtonDone.id = id
+    newImg.id = id
+    newP.id = id
+    newTime.textContent = time;
+    newP.textContent = data;
 
-        let edit = document.createElement('input');
-        edit.className = 'container-input'
-        edit.value = text;
-        this.appendChild(edit);
+    newButtonDel.textContent = 'Del';
+    newButtonDone.textContent = 'Done';
 
-        let self = this;
-        edit.addEventListener('keypress', function (event) {
-            if (event.key === 'Enter') {
-                self.textContent = this.value;
-                for (let i = 0; i < toDoList.length; i++) {
-                    if (p.id === toDoList[i].id) {
-                        toDoList[i].name = this.value
-                    }
-                }
-            }
-        });
-        });
+    if (done) {
+        newLi.className = 'div-task-done';
+        newP.className = 'p-task-done';
+        newButtonDone.style.visibility = 'hidden';
+        newImg.style.display = 'none';
+    } else {
+        newLi.className = 'div-task';
+        newP.className = 'p-task';
+        newButtonDone.className = 'btn-done';
+        newImg.src = './images/redact-task.png'
     }
+
+    newImg.className = 'img-redact';
+    newDiv1.className = 'div-time';
+    newDiv2.className = 'task-btn_btn';
+    newTime.className = 'time-task'
+    newButtonDel.className = 'btn-task';
+
+    newLi.setAttribute('draggable', 'true')
+
+    containerTask.append(newLi);
+    newLi.append(newDiv1, newDiv2);
+    newDiv1.prepend(newImg, newP, newTime);
+
+    newDiv2.prepend(newButtonDone, newButtonDel);
+    buttonDoneAndDel(newLi, newDiv2, newP, newButtonDel, newButtonDone, newImg);
+    dragAndDrop(document.querySelector('.container-task'))
+    redactTask(newImg, newP)
 }
 
-function ButtonDoneAndDel(li, div2, p, buttonDel, buttonDone) {
+function redactTask(img, p) {
+    img.addEventListener('click', () => {
+        for (let i = 0; i < toDoList.length; i++) {
+            if (img.id === toDoList[i].id) {
+                let edit = document.createElement('input');
+                edit.className = 'container-input';
+                edit.value = toDoList[i].name;
+                p.replaceWith(edit)
+                edit.addEventListener('keypress', () => {
+                    if (event.key === 'Enter' && p.innerHTML !== edit.value) {
+                        p.innerHTML = edit.value
+                        toDoList[i].name = edit.value
+                        edit.replaceWith(p)
+                    }
+                })
+            }
+        }
+    })
+}
+
+function buttonDoneAndDel(li, div2, p, buttonDel, buttonDone, img) {
     buttonDone.addEventListener('click', () => {
         for (let i = 0; i < toDoList.length; i++) {
             if (buttonDone.id === toDoList[i].id) {
@@ -105,11 +151,11 @@ function ButtonDoneAndDel(li, div2, p, buttonDel, buttonDone) {
             }
         }
 
-        // Змінюю стилі кнопки "DONE"
         li.className = 'div-task-done';
+        img.style.display = 'none'
         p.className = 'p-task-done';
         p.setAttribute('contenteditable', 'false');
-        buttonDone.className = 'btn-done-silver';
+        buttonDone.style.display = 'none';
     })
 
     buttonDel.addEventListener('click', () => {
@@ -122,53 +168,7 @@ function ButtonDoneAndDel(li, div2, p, buttonDel, buttonDone) {
     });
 }
 
-const sortByAlphabetAndData = (time, data, id, done) => {
-    const newLi = document.createElement('li');
-    const newDiv1 = document.createElement('div');
-    const newDiv2 = document.createElement('div');
-    const newP = document.createElement('p');
-    const newTime = document.createElement('time');
-    const newButtonDel = document.createElement('button');
-    const newButtonDone = document.createElement('button');
-
-    newButtonDel.id = id
-    newButtonDone.id = id
-    newP.id = id
-    newTime.textContent = time;
-    newP.textContent = data;
-
-    newButtonDel.textContent = 'Del';
-    newButtonDone.textContent = 'Done';
-
-    if (done) {
-        newLi.className = 'div-task-done';
-        newP.className = 'p-task-done';
-        newButtonDone.className = 'btn-done-silver';
-    } else {
-        newLi.className = 'div-task';
-        newP.className = 'p-task';
-        newButtonDone.className = 'btn-done';
-    }
-
-    newLi.id = 'drag';
-    newDiv1.className = 'div-time';
-    newDiv2.className = 'task-btn_btn';
-    newTime.className = 'time-task'
-    newButtonDel.className = 'btn-task';
-
-    newLi.setAttribute('draggable', 'true')
-
-    containerTask.append(newLi);
-    newLi.append(newDiv1, newDiv2);
-    newDiv1.prepend(newP, newTime);
-
-    newDiv2.prepend(newButtonDone, newButtonDel);
-    ButtonDoneAndDel(newLi, newDiv2, newP, newButtonDel, newButtonDone);
-    dragAndDrop(document.querySelector('.container-task'))
-    redactTask(newP)
-}
-
-const ButtonSortAZ = () => {
+const buttonSortAZ = () => {
     buttonSortByAlphabet.addEventListener('click', () => {
         toDoList.sort((a, b) => a.name > b.name ? 1 : -1)
 
@@ -179,9 +179,9 @@ const ButtonSortAZ = () => {
         }
     })
 }
-ButtonSortAZ()
+buttonSortAZ()
 
-const ButtonSortTime = () => {
+const buttonSortTime = () => {
     buttonSortByTime.addEventListener('click', () => {
         toDoList.sort((a, b) => a.time > b.time ? 1 : -1)
 
@@ -192,7 +192,7 @@ const ButtonSortTime = () => {
         }
     })
 }
-ButtonSortTime();
+buttonSortTime();
 
 function dragAndDrop(target) {
     target.classList.add('slist');

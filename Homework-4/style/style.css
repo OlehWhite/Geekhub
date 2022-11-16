@@ -48,6 +48,7 @@ body {
     color: #363636;
     outline:none;
     font-size: 20px;
+    margin: 19px 0;
 }
 
 input:focus {
@@ -70,6 +71,12 @@ input:focus {
 .div-task:hover {
     box-shadow: 0 0 20px #9d9a9a;;
     transition: all .5s;
+}
+
+/** Img */
+.img-redact {
+    fill: #e1e1e1;
+    width: 18px;
 }
 
 /** All button */
@@ -139,19 +146,6 @@ input:focus {
     padding: 20px;
     border-radius: 15px;
     transition: all .5s;
-}
-
-.btn-done-silver {
-    width: 70px;
-    height: 30px;
-    color: slategray;
-    font-family: 'Ubuntu', sans-serif;
-    transition: all .2s;
-    background-color: rgba(242, 246, 255, 0.51);
-    border: 1px solid azure;
-    border-radius: 10px;
-    font-size: 16px;
-    margin: 1px;
 }
 
 /** Block time*/
