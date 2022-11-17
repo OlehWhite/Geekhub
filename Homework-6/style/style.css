@@ -1,0 +1,62 @@
+body {
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+    font-family: 'Permanent Marker', cursive;
+    color: rgba(255, 255, 255, 0.76);
+}
+
+.main {
+    max-width: 800px;
+    margin: 20px auto 0;
+
+    padding: 20px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.13);
+}
+
+.main-container {
+    display: flex;
+}
+
+.block-img {
+    width: 250px;
+}
+
+.information-name {
+    font-size: 30px;
+    text-align: center;
+    margin: 0;
+}
+
+.information-date {
+    font-size: 13px;
+    text-align: center;
+}
+
+/** Мої репозиторії GitGub */
+
+.main-repository {
+    text-align: center;
+}
+
+.repository-geek-hub,
+.repository-website_layout {
+    display: flex;
+    justify-content: flex-start;
+    cursor: pointer;
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.35);
+    transition: all .3s;
+    margin-bottom: 10px;
+}
+
+.repository-geek-hub:hover,
+.repository-website_layout:hover {
+    color: #e1e1e1;
+}
+
+.data {
+    color: rgb(255, 255, 255);
+    margin-left: 100px;
+}
