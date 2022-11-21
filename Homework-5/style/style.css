@@ -25,4 +25,5 @@ body {
     text-align: start;
     margin: auto;
     padding: 15px 0;
+    word-break: break-all;
 }

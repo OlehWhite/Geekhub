@@ -3,8 +3,10 @@ const input = document.querySelector('.input');
 const p = document.querySelector('.p-default')
 
 input.addEventListener('keydown', () => {
-    p.className = 'p-text';
+    p.className = 'p-default';
     p.innerHTML = input.value;
-    if (input.value.length === 0) p.className = 'p-default'
-    setTimeout(() => p.className = 'p-default', 1000);
+    setTimeout(() => {
+        if (input.value.length === 0) p.className = 'p-default'
+        else p.className = 'p-text'
+    }, 1000);
 })
