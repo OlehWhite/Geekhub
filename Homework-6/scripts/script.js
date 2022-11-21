@@ -6,31 +6,56 @@ const getData = (url) =>
             .catch(error => reject(error))
     )
 
-const linkGeekHub = 'https://api.github.com/users/OlehWhite';
-const linkWebsiteLayout = 'https://api.github.com/repos/OlehWhite/WebsiteLayout';
+const linkWebsiteLayout = 'https://api.github.com/repos/OlehWhite/WebsiteLayout/commits';
+const linkHtmlCssPractice = 'https://api.github.com/repos/OlehWhite/HtmlCssPractice/commits';
+const linkJSPractice = 'https://api.github.com/repos/OlehWhite/JavaScriptPractice/commits';
 
-const repositoryGeekHub = document.querySelector('.repository-geek-hub')
 const repositoryWebsiteLayout = document.querySelector('.repository-website_layout')
+const repositoryHtmlCssPractice = document.querySelector('.repository-html-css-practice')
+const repositoryJSPractice = document.querySelector('.repository-js-practice')
 
-
-repositoryGeekHub.addEventListener('click', () => {
-    getData(linkGeekHub)
-        .then(data => {
+const addEventListRepository = (tagClass, url) => {
+    let checked = false
+    tagClass.addEventListener('click', () => {
+        if (checked) return
+        displayLoading()
+        getData(url)
+            .then(data => {
+                checked = true
                 const div = document.createElement('div');
-                div.className = 'data'
-                div.textContent = 'Час крайного редагування: ' + data.updated_at
-            repositoryGeekHub.append(div)
-        })
-        .catch(error => console.log(error.message))
-})
+                const date = data[0]['commit']['committer']['date']
+                let stringCleanData = '';
 
-repositoryWebsiteLayout.addEventListener('click', () => {
-    getData(linkWebsiteLayout)
-        .then(data => {
-            const div = document.createElement('div');
-            div.className = 'data'
-            div.textContent = 'Час крайного редагування: ' + data.updated_at
-            repositoryWebsiteLayout.append(div)
-        })
-        .catch(error => console.log(error.message))
-})
+                for (let i = 0; i < date.length; i++) {
+                    if (date[i] === 'T' || date[i] === 'Z') {
+                        stringCleanData += ' '
+                    } else {
+                        stringCleanData += date[i]
+                    }
+                }
+
+                div.className = 'data'
+                hideLoading()
+                div.textContent = 'Останні зміни: ' + stringCleanData
+                tagClass.append(div)
+            })
+            .catch(error => console.log(error.message))
+    })
+}
+
+const loader = document.querySelector('#loading')
+
+function displayLoading() {
+    loader.classList.add('display')
+    setTimeout(() => {
+        loader.classList.remove('display')
+    }, 2000)
+}
+
+function hideLoading() {
+    loader.classList.remove('display')
+}
+
+addEventListRepository(repositoryWebsiteLayout, linkWebsiteLayout);
+addEventListRepository(repositoryHtmlCssPractice, linkHtmlCssPractice);
+addEventListRepository(repositoryJSPractice, linkJSPractice);
