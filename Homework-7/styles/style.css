@@ -1,0 +1,119 @@
+body {
+    background: rgb(53,101,203);
+    background: linear-gradient(90deg, rgba(53,101,203,1) 22%, rgba(0,0,0,0.9472163865546218) 83%);
+    font-family: 'Zen Dots', cursive;
+}
+
+.section {
+    display: flex;
+    justify-content: center;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.list,
+.list-info {
+    margin: 10px;
+    padding: 0;
+    list-style-type: none;
+}
+
+.item {
+    width: 250px;
+    font-size: 25px;
+    font-weight: bold;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.item:hover {
+    cursor: pointer;
+    transition: all .5s;
+    background-color: rgba(72, 70, 72, 0.31);
+}
+
+.section-tamagocthi {
+    width: 800px;
+    text-align: center;
+}
+
+.list-info {
+    background-color: rgba(255, 255, 255, 0.3);
+    border: 1px solid #000000;
+    border-radius: 15px;
+    width: 380px;
+}
+
+.item-info {
+    font-size: 30px;
+    padding: 10px;
+}
+
+.tamagocthi {
+    text-align: center;
+}
+
+.tamagocthi-img {
+    width: 400px;
+}
+
+.h2 {
+    background-color: rgba(255, 255, 255, 0.3);
+    border: 1px solid #000000;
+    font-size: 60px;
+    padding: 20px;
+    margin: 40px;
+    border-radius: 15px;
+}
+
+/** 100-80 HP Green Color */
+.health-scale-green {
+    background-color: #91ff00a6;
+    border-radius: 11px;
+    padding: 5px;
+}
+
+/** 80-50 HP Yellow Color */
+.health-scale-yellow {
+    background-color: rgba(247, 255, 0, 0.65);
+    border-radius: 11px;
+    padding: 5px;
+}
+
+/** 50-20 HP Orange Color */
+.health-scale-orange {
+    background-color: rgba(255, 128, 0, 0.65);
+    border-radius: 11px;
+    padding: 5px;
+}
+
+/** 20-0 HP Red Color */
+.health-scale-red {
+    background-color: rgba(255, 0, 0, 0.65);
+    border-radius: 11px;
+    padding: 5px;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.h3 {
+    margin: 10px;
+    padding: 5px;
+}
+
+.ul-wrapper {
+    list-style-type: none;
+    padding: 20px;
+    margin: 0;
+}
+
