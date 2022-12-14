@@ -63,6 +63,7 @@ tamagotciFeed.style.display = 'block'
 
 setInterval(() => {
     if (0 < health) {
+        // В залежності стільки хп в тамаогочі, змінювати картинку
         if (100 >= health || 100 >= saturation || 100 >= strength || 100 >= happiness || 100 >= purity) {
             colorHealth.className = 'health-scale-green'
             colorSaturation.className = 'health-scale-green'
@@ -187,6 +188,8 @@ function showTextContent() {
     tamagotchiPuring.textContent = purity
 }
 
+// Додаю методи для тамагочі
+
 // Зміни для кнопки "Покормити"
 function feed() {
     health += 5;
@@ -207,7 +210,6 @@ function showOrRemoveContentForFeed() {
         showTextContent()
     }
 }
-
 tamagotciFeed.addEventListener('click', showOrRemoveContentForFeed)
 
 // Зміни для кнопки "Попити"
@@ -218,7 +220,6 @@ function drink() {
 
     return { health, strength, happiness }
 }
-
 tamagotchiGosha.drink = drink
 
 function showOrRemoveContentForDrink() {
@@ -229,7 +230,6 @@ function showOrRemoveContentForDrink() {
         showTextContent()
     }
 }
-
 tamagotciDrink.addEventListener('click', showOrRemoveContentForDrink)
 
 // Зміни для кнопки "Вчитися"
@@ -242,7 +242,6 @@ function study() {
 
     return { health, saturation, strength, happiness, purity }
 }
-
 tamagotchiGosha.study = study
 
 function showOrRemoveContentForStudy() {
@@ -253,7 +252,6 @@ function showOrRemoveContentForStudy() {
         showTextContent()
     }
 }
-
 tamagotciStudy.addEventListener('click', showOrRemoveContentForStudy)
 
 // Зміни для кнопки "Пограти"
@@ -265,7 +263,6 @@ function play() {
 
     return { health, saturation, strength, happiness }
 }
-
 tamagotchiGosha.play = play
 
 function showOrRemoveContentForPlay() {
@@ -276,7 +273,6 @@ function showOrRemoveContentForPlay() {
         showTextContent()
     }
 }
-
 tamagotciPlay.addEventListener('click', showOrRemoveContentForPlay)
 
 // Зміни для кнопки "Погуляти"
@@ -289,7 +285,6 @@ function walk() {
 
     return { health, saturation, strength, happiness, purity }
 }
-
 tamagotchiGosha.walk = walk
 
 function showOrRemoveContentForWalk() {
@@ -300,7 +295,6 @@ function showOrRemoveContentForWalk() {
         showTextContent()
     }
 }
-
 tamagotciWalk.addEventListener('click', showOrRemoveContentForWalk)
 
 // Зміни для кнопки "Сон"
@@ -313,7 +307,6 @@ function sleep() {
 
     return { health, saturation, strength, happiness, purity }
 }
-
 tamagotchiGosha.sleep = sleep
 
 function showOrRemoveContentForSleep() {
@@ -324,7 +317,6 @@ function showOrRemoveContentForSleep() {
         showTextContent()
     }
 }
-
 tamagotciSleep.addEventListener('click', showOrRemoveContentForSleep)
 
 // Зміни для "Лікування"
@@ -335,7 +327,6 @@ function treat() {
 
     return { health, strength, happiness }
 }
-
 tamagotchiGosha.treat = treat
 
 function showOrRemoveContentForTreat() {
@@ -346,7 +337,6 @@ function showOrRemoveContentForTreat() {
         showTextContent()
     }
 }
-
 tamagotciTreat.addEventListener('click', showOrRemoveContentForTreat)
 
 // Зміна для "Купання"
@@ -356,7 +346,6 @@ function bathe() {
 
     return { health, strength, happiness }
 }
-
 tamagotchiGosha.bathe = bathe
 
 function showOrRemoveContentForBathe() {
@@ -367,5 +356,4 @@ function showOrRemoveContentForBathe() {
         showTextContent()
     }
 }
-
 tamagotciBathe.addEventListener('click', showOrRemoveContentForBathe)
