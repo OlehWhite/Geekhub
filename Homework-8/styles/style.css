@@ -40,7 +40,7 @@ body {
 .input {
     width: 410px;
     height: 30px;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: rgba(255, 255, 255, 0.29);
     border-radius: 5px;
 }
 
@@ -48,8 +48,19 @@ body {
 .inp-last-name {
     width: 180px;
     height: 30px;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: rgba(255, 255, 255, 0.29);
     border-radius: 5px;
+}
+/** Text errors*/
+.p-first-name,
+.p-last-name,
+.p-phone-number,
+.p-email,
+.p-password,
+.p-confirm-password {
+    font-size: 14px;
+    margin-top: 10px;
+    color: #ff2e2eba;
 }
 
 /** Button */
