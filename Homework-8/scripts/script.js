@@ -34,7 +34,7 @@ function submitForm() {
                 password,
             }
             console.log(user)
-            cleanInputValue()
+            cleanInputValueAfterSubmitForm()
         }
     }
 }
@@ -67,7 +67,6 @@ function showFirstName() {
     } else {
         firstName.style.border = '2px solid #ff2e2e'
         errorFirstName.textContent = 'Cannot use spase or character'
-
     }
 }
 
@@ -116,11 +115,11 @@ function showPhoneNumber() {
         phoneNumber.style.border = '2px solid #ff2e2e'
         errorPhoneNumber.textContent = 'Use only digit'
 
-    } else if (/^((\+?3)?8)(050|063|066|067|068|093|095|096|097|098|099)\d{7,}$/.test(newValuePhoneNumber)) {
+    } else if (/^((\+?3)?8)?(050|063|066|067|068|093|095|096|097|098|099)\d{7,}$/.test(newValuePhoneNumber)) {
         phoneNumber.style.border = '2px solid #ff2e2e'
         errorPhoneNumber.textContent = 'A lot of numbers'
 
-    } else if (/^((\+?3)?8)(050|063|066|067|068|093|095|096|097|098|099)\d{0,7}$/.test(newValuePhoneNumber)) {
+    } else if (/^((\+?3)?8)?(050|063|066|067|068|093|095|096|097|098|099)\d{0,7}$/.test(newValuePhoneNumber)) {
         phoneNumber.style.border = '2px solid #ff2e2e'
         errorPhoneNumber.textContent = 'Very few numbers'
 
@@ -141,7 +140,7 @@ function showEmail() {
 
     } else {
         email.style.border = '2px solid #ff2e2e';
-        errorEmail.textContent = 'Not valid. Example: ivanov@email.ua'
+        errorEmail.textContent = 'Not valid. Example: ivanov_ivan.33@email.ua'
     }
 }
 
@@ -193,7 +192,7 @@ function showPassword() {
     }
 }
 
-function cleanInputValue() {
+function cleanInputValueAfterSubmitForm() {
     firstName.value = '';
     lastName.value = ''
     phoneNumber.value = '';
