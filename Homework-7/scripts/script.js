@@ -7,21 +7,93 @@ class Tamagotchi {
         this.happiness = happiness
         this.purity = purity
     }
+
+    feed() {
+        health += 5;
+        saturation += 15;
+        strength += 5;
+        happiness += 5;
+        purity -= 5;
+
+        return { health, saturation, strength, happiness, purity }
+    }
+
+     drink() {
+        health += 5;
+        strength += 5;
+        happiness += 5;
+
+        return { health, strength, happiness }
+    }
+
+    study() {
+        health -= 5;
+        saturation -= 5;
+        strength -= 5;
+        happiness -= 10;
+        purity -= 5;
+
+        return { health, saturation, strength, happiness, purity }
+    }
+
+    play() {
+        health -= 5;
+        saturation -= 5;
+        strength -= 5;
+        happiness += 15;
+
+        return { health, saturation, strength, happiness }
+    }
+
+    walk() {
+        health += 15;
+        saturation -= 5;
+        strength -= 5;
+        happiness += 5;
+        purity -= 5;
+
+        return { health, saturation, strength, happiness, purity }
+    }
+
+    sleep() {
+        health += 15;
+        saturation -= 5;
+        strength += 5;
+        happiness -= 5;
+        purity -= 5;
+
+        return { health, saturation, strength, happiness, purity }
+    }
+
+    treat() {
+        health += 10;
+        strength += 5;
+        happiness -= 5;
+
+        return { health, strength, happiness }
+    }
+
+    bathe() {
+        happiness += 10;
+        purity += 5;
+
+        return { health, strength, happiness }
+    }
 }
 
-let tamagotchiGosha = new Tamagotchi('Гриша', 100, 100, 100, 100, 100);
+const tamagotchiGosha = new Tamagotchi('Гриша', 100, 100, 100, 100, 100);
 
 const tamagotchiImg = document.querySelector('.tamagocthi-img');
 
 // Section Properties
-const tamagotciFeed = document.querySelector('.item-feed');
-const tamagotciDrink = document.querySelector('.item-drink');
-const tamagotciStudy = document.querySelector('.item-study');
-const tamagotciPlay = document.querySelector('.item-play');
-const tamagotciWalk = document.querySelector('.item-walk');
-const tamagotciSleep = document.querySelector('.item-sleep');
-const tamagotciTreat = document.querySelector('.item-treat');
-const tamagotciBathe = document.querySelector('.item-bathe');
+const tamagotchiFeed = document.querySelector('.item-feed');
+const tamagotchiDrink = document.querySelector('.item-drink');
+const tamagotchiStudy = document.querySelector('.item-study');
+const tamagotchiPlay = document.querySelector('.item-play');
+const tamagotchiWalk = document.querySelector('.item-walk');
+const tamagotchiSleep = document.querySelector('.item-sleep');
+const tamagotchiTreat = document.querySelector('.item-treat');
+const tamagotchiBathe = document.querySelector('.item-bathe');
 
 // Section Characteristics
 const tamagotchiName = document.querySelector('.item-name');
@@ -42,11 +114,11 @@ const colorHappiness = document.querySelector('.item-happiness');
 const colorPurity = document.querySelector('.item-purity');
 
 // Numbers by Characteristics
-let health = tamagotchiGosha.health;
-let saturation = tamagotchiGosha.saturation;
-let strength = tamagotchiGosha.strength;
-let happiness = tamagotchiGosha.happiness;
-let purity = tamagotchiGosha.purity;
+let health = 100;
+let saturation = 100;
+let strength = 100;
+let happiness = 100;
+let purity = 100;
 
 showTextContent()
 
@@ -59,7 +131,7 @@ colorPurity.className = 'health-scale-green'
 
 h2.style.display = 'none'
 
-tamagotciFeed.style.display = 'block'
+tamagotchiFeed.style.display = 'block'
 
 setInterval(() => {
     if (0 < health) {
@@ -188,172 +260,82 @@ function showTextContent() {
     tamagotchiPuring.textContent = purity
 }
 
-// Додаю методи для тамагочі
-
-// Зміни для кнопки "Покормити"
-function feed() {
-    health += 5;
-    saturation += 15;
-    strength += 5;
-    happiness += 5;
-    purity -= 5;
-
-    return { health, saturation, strength, happiness, purity }
-}
-tamagotchiGosha.feed = feed
-
 function showOrRemoveContentForFeed() {
     if (0 === health) {
-        tamagotciFeed.removeEventListener('click', showOrRemoveContentForFeed)
+        tamagotchiFeed.removeEventListener('click', showOrRemoveContentForFeed)
     } else {
         tamagotchiGosha.feed()
         showTextContent()
     }
 }
-tamagotciFeed.addEventListener('click', showOrRemoveContentForFeed)
-
-// Зміни для кнопки "Попити"
-function drink() {
-    health += 5;
-    strength += 5;
-    happiness += 5;
-
-    return { health, strength, happiness }
-}
-tamagotchiGosha.drink = drink
+tamagotchiFeed.addEventListener('click', showOrRemoveContentForFeed)
 
 function showOrRemoveContentForDrink() {
     if (0 === health) {
-        tamagotciDrink.removeEventListener('click', showOrRemoveContentForDrink)
+        tamagotchiDrink.removeEventListener('click', showOrRemoveContentForDrink)
     } else {
         tamagotchiGosha.drink()
         showTextContent()
     }
 }
-tamagotciDrink.addEventListener('click', showOrRemoveContentForDrink)
-
-// Зміни для кнопки "Вчитися"
-function study() {
-    health -= 5;
-    saturation -= 5;
-    strength -= 5;
-    happiness -= 10;
-    purity -= 5;
-
-    return { health, saturation, strength, happiness, purity }
-}
-tamagotchiGosha.study = study
+tamagotchiDrink.addEventListener('click', showOrRemoveContentForDrink)
 
 function showOrRemoveContentForStudy() {
     if (0 === health) {
-        tamagotciStudy.removeEventListener('click', showOrRemoveContentForStudy)
+        tamagotchiStudy.removeEventListener('click', showOrRemoveContentForStudy)
     } else {
         tamagotchiGosha.study()
         showTextContent()
     }
 }
-tamagotciStudy.addEventListener('click', showOrRemoveContentForStudy)
-
-// Зміни для кнопки "Пограти"
-function play() {
-    health -= 5;
-    saturation -= 5;
-    strength -= 5;
-    happiness += 15;
-
-    return { health, saturation, strength, happiness }
-}
-tamagotchiGosha.play = play
+tamagotchiStudy.addEventListener('click', showOrRemoveContentForStudy)
 
 function showOrRemoveContentForPlay() {
     if (0 === health) {
-        tamagotciPlay.removeEventListener('click', showOrRemoveContentForPlay)
+        tamagotchiPlay.removeEventListener('click', showOrRemoveContentForPlay)
     } else {
         tamagotchiGosha.play()
         showTextContent()
     }
 }
-tamagotciPlay.addEventListener('click', showOrRemoveContentForPlay)
-
-// Зміни для кнопки "Погуляти"
-function walk() {
-    health += 15;
-    saturation -= 5;
-    strength -= 5;
-    happiness += 5;
-    purity -= 5;
-
-    return { health, saturation, strength, happiness, purity }
-}
-tamagotchiGosha.walk = walk
+tamagotchiPlay.addEventListener('click', showOrRemoveContentForPlay)
 
 function showOrRemoveContentForWalk() {
     if (0 === health) {
-        tamagotciWalk.removeEventListener('click', showOrRemoveContentForWalk)
+        tamagotchiWalk.removeEventListener('click', showOrRemoveContentForWalk)
     } else {
         tamagotchiGosha.walk()
         showTextContent()
     }
 }
-tamagotciWalk.addEventListener('click', showOrRemoveContentForWalk)
-
-// Зміни для кнопки "Сон"
-function sleep() {
-    health += 15;
-    saturation -= 5;
-    strength += 5;
-    happiness -= 5;
-    purity -= 5;
-
-    return { health, saturation, strength, happiness, purity }
-}
-tamagotchiGosha.sleep = sleep
+tamagotchiWalk.addEventListener('click', showOrRemoveContentForWalk)
 
 function showOrRemoveContentForSleep() {
     if (0 === health) {
-        tamagotciSleep.removeEventListener('click', showOrRemoveContentForSleep)
+        tamagotchiSleep.removeEventListener('click', showOrRemoveContentForSleep)
     } else {
         tamagotchiGosha.sleep()
         showTextContent()
     }
 }
-tamagotciSleep.addEventListener('click', showOrRemoveContentForSleep)
-
-// Зміни для "Лікування"
-function treat() {
-    health += 10;
-    strength += 5;
-    happiness -= 5;
-
-    return { health, strength, happiness }
-}
-tamagotchiGosha.treat = treat
+tamagotchiSleep.addEventListener('click', showOrRemoveContentForSleep)
 
 function showOrRemoveContentForTreat() {
     if (0 === health) {
-        tamagotciTreat.removeEventListener('click', showOrRemoveContentForTreat)
+        tamagotchiTreat.removeEventListener('click', showOrRemoveContentForTreat)
     } else {
         tamagotchiGosha.treat()
         showTextContent()
     }
 }
-tamagotciTreat.addEventListener('click', showOrRemoveContentForTreat)
-
-// Зміна для "Купання"
-function bathe() {
-    happiness += 10;
-    purity += 5;
-
-    return { health, strength, happiness }
-}
-tamagotchiGosha.bathe = bathe
+tamagotchiTreat.addEventListener('click', showOrRemoveContentForTreat)
 
 function showOrRemoveContentForBathe() {
     if (0 === health) {
-        tamagotciBathe.removeEventListener('click', showOrRemoveContentForBathe)
+        tamagotchiBathe.removeEventListener('click', showOrRemoveContentForBathe)
     } else {
         tamagotchiGosha.bathe()
         showTextContent()
     }
 }
-tamagotciBathe.addEventListener('click', showOrRemoveContentForBathe)
+tamagotchiBathe.addEventListener('click', showOrRemoveContentForBathe)
