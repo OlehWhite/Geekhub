@@ -77,7 +77,7 @@ class Tamagotchi {
         happiness += 10;
         purity += 5;
 
-        return { health, strength, happiness }
+        return { health, happiness }
     }
 }
 
@@ -114,11 +114,11 @@ const colorHappiness = document.querySelector('.item-happiness');
 const colorPurity = document.querySelector('.item-purity');
 
 // Numbers by Characteristics
-let health = 100;
-let saturation = 100;
-let strength = 100;
-let happiness = 100;
-let purity = 100;
+let health = tamagotchiGosha.health;
+let saturation = tamagotchiGosha.saturation;
+let strength = tamagotchiGosha.strength;
+let happiness = tamagotchiGosha.happiness;
+let purity = tamagotchiGosha.purity;
 
 showTextContent()
 
