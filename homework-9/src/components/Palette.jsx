@@ -36,7 +36,6 @@ export const Palette = () => {
                 }
             })
         }
-
     }, [count])
 
     useEffect(() => {
@@ -62,7 +61,6 @@ export const Palette = () => {
             }
     }, [count])
 
-    console.log(count, rgbColor, averageColor, dominatorColor)
     return (
         <>
             <AverageColor
