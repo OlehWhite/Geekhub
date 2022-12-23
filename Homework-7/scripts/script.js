@@ -18,7 +18,7 @@ class Tamagotchi {
         return { health, saturation, strength, happiness, purity }
     }
 
-     drink() {
+    drink() {
         health += 5;
         strength += 5;
         happiness += 5;
