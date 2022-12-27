@@ -50,11 +50,11 @@ export const Palette = () => {
     }, [count, rgbColor])
 
     useEffect(() => {
-            if (rgbColor.red > (rgbColor.green + rgbColor.blue)) {
+            if (rgbColor.red > (rgbColor.green + rgbColor.blue) / 2) {
                 setDominatorColor(dominatorColor = 'red')
-            } else if (rgbColor.green > (rgbColor.red + rgbColor.blue)) {
-                setDominatorColor(dominatorColor = 'blue')
-            } else if (rgbColor.blue > (rgbColor.red + rgbColor.green)) {
+            } else if (rgbColor.green > (rgbColor.red + rgbColor.blue) / 2) {
+                setDominatorColor(dominatorColor = 'green')
+            } else if (rgbColor.blue > (rgbColor.red + rgbColor.green) / 2) {
                 setDominatorColor(dominatorColor = 'blue')
             } else {
                 setDominatorColor(dominatorColor = 'All colors are equal')
