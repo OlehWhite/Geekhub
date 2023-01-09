@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 
 import { Form } from './Form';
 import { FormField } from './FormField';
@@ -108,29 +108,59 @@ import { FormField } from './FormField';
 // // };
 
 export const FormLogin = () => {
+    const [valuePassword, setValuePassword] = useState('')
+    const [valueConfirmPassword, setConfirmPassword] = useState('')
+
+    const passwordHandler = (valuePassword) => {
+        setValuePassword(valuePassword)
+    }
+
+    const confirmPasswordHandler = (valueConfirmPassword) => {
+        setConfirmPassword(valueConfirmPassword)
+    }
+
     const onSubmit = async (values) => {
-        await new Promise(resolve => setTimeout(resolve, 2000))
-        console.log('values', values);
+        if (valuePassword === valueConfirmPassword &&
+            /(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*])[A-Za-z0-9!@#$%^&*]{8,}/.test(valuePassword)
+            &&
+            /(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*])[A-Za-z0-9!@#$%^&*]{8,}/.test(valueConfirmPassword)) {
+            await new Promise(resolve => setTimeout(resolve,2000))
+            console.log('values', values);
+        } else {
+            return false
+        }
     };
 
     return (
         <Form onSubmit={onSubmit}>
-            <fieldset style={{maxWidth: '600px', margin: '0 auto', borderRadius: '10px'}}>
-                <legend style={{fontSize: '25px' }}>Password Form</legend>
-                <FormField
-                    required
-                    type="password"
-                    name="password"
-                    label="Password"
-                />
-                <FormField
-                    required
-                    type="confirmPassword"
-                    name="confirmPassword"
-                    label="Confirm Password"
-                />
-                <button type="submit">Submit</button>
-            </fieldset>
+            {({ isSubmitting}) => (
+                <fieldset style={{ maxWidth: '250px', margin: '0 auto', borderRadius: '10px'}}>
+                    <legend style={{ fontSize: '25px' }}>Password Form</legend>
+                    <FormField
+                        required
+                        component="input"
+                        type="password"
+                        name="password"
+                        label="Password"
+                        placeholder='Password'
+                        onChange={passwordHandler}
+                    />
+                    <FormField
+                        required
+                        component="input"
+                        type="confirmPassword"
+                        name="confirmPassword"
+                        label="ConfirmPassword"
+                        placeholder='Confirm Password'
+                        password={valuePassword}
+                        onChange={confirmPasswordHandler}
+                    />
+                    <button
+                        type="submit"
+                        disabled={ isSubmitting }
+                    >Submit</button>
+                </fieldset>
+            )}
         </Form>
     );
 };

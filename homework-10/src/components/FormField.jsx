@@ -1,16 +1,15 @@
-import React, { useId } from "react";
+import React, {useContext, useId, useState} from "react";
 import { ConfirmPassword } from './ConfirmPassword'
 import { Password } from './Password'
 import { Input } from './Input'
+import { FormContext } from "./Form";
 
 export const FormField = ({
       type = 'text',
-      id: propsId,
       label,
       ...rest
   }) => {
-    const innerId = useId();
-    const id = propsId || `FormField${innerId}`
+    const { isSubmitting } = useContext(FormContext)
 
     let Component;
     switch (type) {
@@ -27,11 +26,11 @@ export const FormField = ({
 
     return (
         <div>
-            <label htmlFor={id}>{label}</label>
+            <label>{label}</label>
             <Component
                 {...rest}
-                id={id}
                 type={type}
+                disabled={isSubmitting}
             />
         </div>
     )

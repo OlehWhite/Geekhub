@@ -1,5 +1,9 @@
 import React, {useRef, useState} from "react";
 
+export const FormContext = React.createContext({
+    isSubmitting: false
+});
+
 export const Form = ({
     onSubmit: propsOnSubmit,
     children,
@@ -14,7 +18,7 @@ export const Form = ({
         setIsSubmitting(true)
 
         const formData = new FormData(formRef.current);
-        const  value = serialize(formData);
+        const value = serialize(formData);
 
         try {
             if (propsOnSubmit) {
@@ -29,13 +33,15 @@ export const Form = ({
     }
 
     return (
-        <form
-            {...rest}
-            ref={formRef}
-            onSubmit={onSubmit}
-        >
-            {children}
-        </form>
+        <FormContext.Provider value={{ isSubmitting }}>
+            <form
+                {...rest}
+                ref={formRef}
+                onSubmit={onSubmit}
+            >
+                { typeof children === 'function' ? children({ isSubmitting }) : children}
+            </form>
+        </FormContext.Provider>
     )
 }
 

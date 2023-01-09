@@ -1,18 +1,44 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import { classNames } from "./css";
-import "./styles/style.css"
+import "../styles/style.css"
 
-export const ConfirmPassword = ({ className, ...rest }) => {
+export const ConfirmPassword = ({ onChange, password, className, ...rest }) => {
+    const [confirmPassword, setConfirmPassword] = useState('')
     const [showPassword, setShowPassword] = useState(false);
+    const [confirmPasswordDirty, setConfirmPasswordDirty] = useState(false);
+    const [confirmPasswordError, setConfirmPasswordError] = useState('The field cannot be empty');
 
     const Icon = showPassword ? Eye : EyeSlash;
 
+    const confirmPasswordHandle = (e) => {
+        onChange(e.target.value)
+        setConfirmPassword(e.target.value)
+
+        if (password === confirmPassword) {
+            setConfirmPasswordError('✅')
+            console.log(true)
+        } else {
+            setConfirmPasswordError('Passwords don\'t match')
+        }
+    }
+
+    const blurHandler = (e) => {
+        switch (e.target.name) {
+            case 'confirmPassword':
+                setConfirmPasswordDirty(true)
+                break
+        }
+    }
+
     return (
-        <span style={{display: "block"}} className={classNames(className, 'ConfirmPassword')}>
+        <div className={classNames(className, 'ConfirmPassword')}>
             <input
                 {...rest}
+                value={confirmPassword}
                 className="PasswordInput__input"
                 type={showPassword ? 'text' : 'password'}
+                onBlur={e => blurHandler(e)}
+                onChange={e => confirmPasswordHandle(e)}
             />
             <button
                 type="button"
@@ -20,9 +46,10 @@ export const ConfirmPassword = ({ className, ...rest }) => {
                 onClick={() => setShowPassword(!showPassword)}
                 aria-label="Toggle show Password"
             >
-               <Icon className="ConfirmPassword__icon"/>
+                <Icon className="ConfirmPassword__icon"/>
             </button>
-        </span>
+            {(confirmPasswordError && confirmPasswordDirty) && <div style={{ color: 'red' }}>{confirmPasswordError}</div>}
+        </div>
     )
 }
 
