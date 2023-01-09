@@ -2,24 +2,23 @@ import React, {useEffect, useState} from "react";
 import { classNames } from "./css";
 import "../styles/style.css"
 
-export const ConfirmPassword = ({ onChange, password, className, ...rest }) => {
+export const ConfirmPassword = ({ onChange, valuePassword, className, ...rest }) => {
     const [confirmPassword, setConfirmPassword] = useState('')
-    const [showPassword, setShowPassword] = useState(false);
     const [confirmPasswordDirty, setConfirmPasswordDirty] = useState(false);
     const [confirmPasswordError, setConfirmPasswordError] = useState('The field cannot be empty');
+    const [showPassword, setShowPassword] = useState(false);
 
-    const Icon = showPassword ? Eye : EyeSlash;
+    useEffect(() => {
+        if (valuePassword === confirmPassword) {
+            setConfirmPasswordError('✅')
+        } else {
+            setConfirmPasswordError('Passwords don\'t match')
+        }
+    })
 
     const confirmPasswordHandle = (e) => {
         onChange(e.target.value)
         setConfirmPassword(e.target.value)
-
-        if (password === confirmPassword) {
-            setConfirmPasswordError('✅')
-            console.log(true)
-        } else {
-            setConfirmPasswordError('Passwords don\'t match')
-        }
     }
 
     const blurHandler = (e) => {
@@ -30,13 +29,15 @@ export const ConfirmPassword = ({ onChange, password, className, ...rest }) => {
         }
     }
 
+    const Icon = showPassword ? Eye : EyeSlash;
+
     return (
         <div className={classNames(className, 'ConfirmPassword')}>
             <input
                 {...rest}
-                value={confirmPassword}
                 className="PasswordInput__input"
                 type={showPassword ? 'text' : 'password'}
+                value={confirmPassword}
                 onBlur={e => blurHandler(e)}
                 onChange={e => confirmPasswordHandle(e)}
             />

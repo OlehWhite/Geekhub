@@ -152,7 +152,7 @@ export const FormLogin = () => {
                         name="confirmPassword"
                         label="ConfirmPassword"
                         placeholder='Confirm Password'
-                        password={valuePassword}
+                        valuePassword={valuePassword}
                         onChange={confirmPasswordHandler}
                     />
                     <button

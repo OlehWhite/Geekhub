@@ -11,8 +11,8 @@ export const Password = ({ onChange, type, className, ...rest }) => {
     const Icon = showPassword ? Eye : EyeSlash;
 
     const passwordHandler = (e) => {
-        setPassword(e.target.value)
         onChange(e.target.value)
+        setPassword(e.target.value)
 
         if (/(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*])[A-Za-z0-9!@#$%^&*]{8,}/.test(e.target.value)) {
             setPasswordError('✅')
