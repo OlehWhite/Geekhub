@@ -1,56 +1,42 @@
-import React, {useEffect, useState} from "react";
-import { classNames } from "./css";
-import "../styles/style.css"
+import React, {useState} from "react";
 
-export const ConfirmPassword = ({ onChange, valuePassword, className, ...rest }) => {
-    const [confirmPassword, setConfirmPassword] = useState('')
-    const [confirmPasswordDirty, setConfirmPasswordDirty] = useState(false);
-    const [confirmPasswordError, setConfirmPasswordError] = useState('The field cannot be empty');
+import { Input } from "../../Input/Input";
+import { validatePassword } from "../../../helper/validate";
+
+import './style.css'
+
+export const FormPasswordField = ({
+    onChange: propsOnChange,
+    onError,
+    required,
+    ...rest
+}) => {
     const [showPassword, setShowPassword] = useState(false);
-
-    useEffect(() => {
-        if (valuePassword === confirmPassword) {
-            setConfirmPasswordError('✅')
-        } else {
-            setConfirmPasswordError('Passwords don\'t match')
-        }
-    })
-
-    const confirmPasswordHandle = (e) => {
-        onChange(e.target.value)
-        setConfirmPassword(e.target.value)
-    }
-
-    const blurHandler = (e) => {
-        switch (e.target.name) {
-            case 'confirmPassword':
-                setConfirmPasswordDirty(true)
-                break
-        }
+    const onChange = (event) => {
+        const { value } = event.target;
+        onError(validatePassword(value, { required }))
+        propsOnChange(value)
     }
 
     const Icon = showPassword ? Eye : EyeSlash;
 
     return (
-        <div className={classNames(className, 'ConfirmPassword')}>
-            <input
+        <>
+            <Input
                 {...rest}
-                className="PasswordInput__input"
+                onChange={onChange}
                 type={showPassword ? 'text' : 'password'}
-                value={confirmPassword}
-                onBlur={e => blurHandler(e)}
-                onChange={e => confirmPasswordHandle(e)}
+                required={required}
             />
             <button
+                className='button-item'
                 type="button"
-                className="PasswordInput__toggle"
                 onClick={() => setShowPassword(!showPassword)}
                 aria-label="Toggle show Password"
             >
-                <Icon className="ConfirmPassword__icon"/>
+                <Icon/>
             </button>
-            {(confirmPasswordError && confirmPasswordDirty) && <div style={{ color: 'red' }}>{confirmPasswordError}</div>}
-        </div>
+        </>
     )
 }
 

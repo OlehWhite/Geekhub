@@ -1,0 +1,18 @@
+.label-item {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.input-item {
+    width: 350px;
+    height: 35px;
+    border-radius: 10px;
+    border: 1px solid black;
+    font-size: 18px;
+    background-color: transparent;
+}
+
+.form-wrapper {
+    margin-bottom: 17px;
+}

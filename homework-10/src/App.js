@@ -1,12 +1,13 @@
 import React from "react";
+import './App.css'
 
-import {FormLogin} from "./components/FormLogin";
+import {EditUserProfile, FormLogin} from "./components/FormLogin/FormLogin";
 
 function App() {
   return (
       <>
-        {/*<EditUserProfile />*/}
-        <FormLogin />
+          <EditUserProfile/>
+          <FormLogin />
       </>
   );
 }

@@ -1,73 +1,45 @@
 import React, { useState } from "react";
-import { classNames } from './css'
-import "../styles/style.css"
 
-export const Password = ({ onChange, type, className, ...rest }) => {
-    const [password, setPassword] = useState('');
-    const [passwordDirty, setPasswordDirty] = useState(false);
-    const [passwordError, setPasswordError] = useState('The field cannot be empty');
+import { validateConfirmPassword } from "../../../helper/validate";
+import { Input } from "../../Input/Input";
+import {useFormContext} from "../../Form/Form";
+
+export const FormConfirmPasswordField = ({
+      onChange: propsOnChange,
+      onError,
+      required,
+      ...rest
+  }) => {
     const [showPassword, setShowPassword] = useState(false);
+
+    const { values } = useFormContext();
+    const { password } = values;
+
+    const onChange = (event) => {
+        const { value } = event.target;
+        onError(validateConfirmPassword(password, value))
+        propsOnChange(value)
+    }
 
     const Icon = showPassword ? Eye : EyeSlash;
 
-    const passwordHandler = (e) => {
-        onChange(e.target.value)
-        setPassword(e.target.value)
-
-        if (/(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*])[A-Za-z0-9!@#$%^&*]{8,}/.test(e.target.value)) {
-            setPasswordError('✅')
-
-        } else if (/(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[A-Za-z0-9!@#$%^&*]{0,8}/.test(e.target.value)) {
-            setPasswordError('Please enter more than 8 characters')
-
-        } else if (/(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*])[A-Za-z0-9!@#$%^&*]{8,}/.test(e.target.value)) {
-            setPasswordError('Specify at least one capital letter')
-
-        } else if (/(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[A-Za-z0-9!@#$%^&*]{8,}/.test(e.target.value)) {
-            setPasswordError('Specify at least one lowercase letter')
-
-        } else if (/(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*])[A-Za-z0-9!@#$%^&*]{8,}/.test(e.target.value)) {
-            setPasswordError('Specify at least one digit')
-
-        } else if (/(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])[A-Za-z0-9!@#$%^&*]{8,}/.test(e.target.value)) {
-            setPasswordError('Specify at least one characters')
-
-        } else if (/^[А-Яа-я]/.test(e.target.value)) {
-            setPasswordError('Use only Latin letters')
-
-        } else {
-            setPasswordError('Incorrect password')
-        }
-    }
-
-    const blurHandler = (e) => {
-        switch (e.target.name) {
-            case 'password':
-                setPasswordDirty(true)
-                break
-        }
-    }
-
-    return(
-        <div className={classNames(className, 'ConfirmPassword')}>
-            <input
+    return (
+        <>
+            <Input
                 {...rest}
-                value={password}
-                className={classNames(className, 'Input')}
+                onChange={onChange}
                 type={showPassword ? 'text' : 'password'}
-                onBlur={e => blurHandler(e)}
-                onChange={e => passwordHandler(e)}
+                required={required}
             />
             <button
+                className='button-item'
                 type="button"
-                className="PasswordInput__toggle"
                 onClick={() => setShowPassword(!showPassword)}
                 aria-label="Toggle show Password"
             >
-                <Icon className="ConfirmPassword__icon"/>
+                <Icon/>
             </button>
-            {(passwordError && passwordDirty) && <div style={{ color: 'red' }}>{passwordError}</div>}
-        </div>
+        </>
     )
 }
 
