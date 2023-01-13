@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-import { Input } from "../../Input/Input";
+import { Input } from "../../Input";
 import { validatePassword } from "../../../helper/validate";
 
 import './style.css'

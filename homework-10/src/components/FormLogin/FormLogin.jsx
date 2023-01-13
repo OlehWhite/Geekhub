@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 
-import { Form } from '../Form/Form';
-import { FormField } from '../FormField/FormField';
-import { FormSubmit } from "../FormSubmit/FormSubmit";
+import { Form } from '../Form';
+import { FormField } from '../FormField';
+import { FormSubmit } from "../FormSubmit";
 
 import './style.css'
 
@@ -21,8 +21,8 @@ export const EditUserProfile = () => {
         <>
             <Form onSubmit={onSubmit}>
                 {({values, errors}) => {
-                    console.log(values)
-                    console.log(errors)
+                    // console.log(values)
+                    // console.log(errors)
                     return (
                 <fieldset style={{ maxWidth: '400px', margin: '0 auto', borderRadius: '10px'}}>
                 <legend style={{ fontSize: '25px' }}>Global Form</legend>

@@ -4,6 +4,7 @@ import './style.css'
 
 export const Checkbox = ({
     label,
+    type,
     ...rest
 }) => {
     const id = useId();
@@ -14,7 +15,7 @@ export const Checkbox = ({
                 style={{width: '20px'}}
                 {...rest}
                 id={id}
-                type='checkbox'
+                type={type === 'checkboxes' ? 'checkbox' : 'radio'}
             />
             <label htmlFor={id}>
                 {label}

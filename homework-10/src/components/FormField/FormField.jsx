@@ -1,17 +1,18 @@
 import React, {useId} from "react";
 
-import { useFormContext } from "../Form/Form";
+import { useFormContext } from "../Form";
 
-import { FormFirstNameAndLastField } from './FormFirstNameAndLastNameField/FormFirstNameAndLastField'
-import {FormConfirmPasswordField} from "./FormConfirmPasswordField/FormConfirmPasswordField";
-import { FormPasswordField } from "./FormPasswordField/FormPasswordField";
-import { FormEmailField } from './FormEmailField/FormEmailField';
-import { FormPhoneField } from "./FormPhoneField/FormPhoneField";
-import { FormInput } from "./FormInput/FormInput";
+import { FormFirstNameAndLastField } from "./FormFirstNameAndLastNameField";
+import { FormConfirmPasswordField } from "./FormConfirmPasswordField";
+import { FormPasswordField } from "./FormPasswordField";
+import { FormCheckboxField } from "./FormCheckboxField";
+import { FormSelectsField } from "./FormSelectsField";
+import { FormEmailField } from "./FormEmailField";
+import { FormCheckboxes } from "./FormCheckboxes";
+import { FormPhoneField } from "./FormPhoneField";
+import { FormInputField } from "./FormInputField";
 
 import './style.css'
-import {FormCheckboxes} from "./FormCheckboxes/FormCheckboxes";
-import {FormSelectsField} from "./FormSelectsField/FormSelectsField";
 
 export const FormField = ({
     type = 'text',
@@ -53,6 +54,12 @@ export const FormField = ({
         case 'select':
             Component = FormSelectsField;
             break;
+        case 'radio':
+            Component = FormCheckboxes;
+            break;
+        case 'checkbox':
+            Component = FormCheckboxField;
+            break;
         case 'checkboxes':
             Component = FormCheckboxes;
             break;
@@ -63,7 +70,7 @@ export const FormField = ({
             Component = FormConfirmPasswordField;
             break;
         default:
-            Component = FormInput;
+            Component = FormInputField;
             break;
     }
 

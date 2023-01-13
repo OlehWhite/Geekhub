@@ -1,7 +1,7 @@
 import React from "react";
 
-import { Select } from "../Select/Select";
-import {validGender} from "../../../helper/validate";
+import { Select } from "../Select";
+import { validGenderAndCheckboxAgree } from "../../../helper/validate";
 
 export const FormSelectsField = ({
     options,
@@ -12,7 +12,7 @@ export const FormSelectsField = ({
 }) => {
     const onChange = (event) => {
         const { value } = event.target;
-        onError(validGender(value, { required }))
+        onError(validGenderAndCheckboxAgree(value, { required }))
         propsOnChange(value);
     }
 

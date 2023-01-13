@@ -70,7 +70,7 @@ export function validateEmail(value, { required } = {}) {
     return result.length === 0 ? null : result.join('. ');
 }
 
-export function validPhoneNumber(value, { required } = {}) {
+export function validatePhoneNumber(value, { required } = {}) {
     const result = [];
 
     if (required && !value) {
@@ -92,7 +92,7 @@ export function validPhoneNumber(value, { required } = {}) {
     return result.length === 0 ? null : result.join('. ');
 }
 
-export function validGender(value, { required } = {}) {
+export function validGenderAndCheckboxAgree(value, { required } = {}) {
     const result = [];
 
     if (required && !value) {

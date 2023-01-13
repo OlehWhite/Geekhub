@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
 import { validateConfirmPassword } from "../../../helper/validate";
-import { Input } from "../../Input/Input";
-import {useFormContext} from "../../Form/Form";
+import { Input } from "../../Input";
+import {useFormContext} from "../../Form";
 
 export const FormConfirmPasswordField = ({
       onChange: propsOnChange,

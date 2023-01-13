@@ -1,6 +1,6 @@
 import React from "react";
-import { validPhoneNumber } from "../../../helper/validate";
-import { Input } from "../../Input/Input";
+import { validatePhoneNumber } from "../../../helper/validate";
+import { Input } from "../../Input";
 
 export const FormPhoneField = ({
   onChange: propsOnChange,
@@ -10,7 +10,7 @@ export const FormPhoneField = ({
 }) => {
     const onChange = (event) => {
         const { value } = event.target;
-        onError(validPhoneNumber(value, { required }))
+        onError(validatePhoneNumber(value, { required }))
         propsOnChange(value)
     }
 

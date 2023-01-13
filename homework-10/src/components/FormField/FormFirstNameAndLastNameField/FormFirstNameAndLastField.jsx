@@ -1,6 +1,6 @@
 import React from "react";
 import { validateName } from "../../../helper/validate";
-import { Input } from "../../Input/Input";
+import { Input } from "../../Input";
 
 export const FormFirstNameAndLastField = ({
     onChange: propsOnChange,

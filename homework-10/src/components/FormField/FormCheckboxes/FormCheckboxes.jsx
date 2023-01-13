@@ -1,7 +1,7 @@
 import React from "react";
-import {Checkbox} from "../Checkbox/Checkbox";
-import {useFormContext} from "../../Form/Form";
-import {REQUIRED} from "../../../helper/validate";
+import { Checkbox } from "../Checkbox";
+import { useFormContext } from "../../Form";
+import { REQUIRED } from "../../../helper/validate";
 
 export const FormCheckboxes = ({
     options,

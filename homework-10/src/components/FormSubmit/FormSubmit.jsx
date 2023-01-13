@@ -1,6 +1,6 @@
 import React from "react";
 
-import { useFormContext } from "../Form/Form";
+import { useFormContext } from "../Form";
 
 import './style.css'
 

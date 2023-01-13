@@ -1,7 +1,7 @@
 import React from "react";
-import {Input} from "../../Input/Input";
+import { Input } from "../../Input";
 
-export const FormInput = ({
+export const FormInputField = ({
     onChange: propsOnChange,
     ...rest
 }) => {
