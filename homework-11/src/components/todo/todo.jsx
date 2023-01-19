@@ -17,7 +17,10 @@ export const Todo = () => {
         <div>
             <h2>More information</h2>
             {todo.map(todo =>
-                <div key={todo.id}>
+                <div
+                    key={todo.id}
+                    className="more-information"
+                >
                     <p><span className="todo-text">Title:</span> {todo.title}</p>
                     <p><span className="todo-text">UserID:</span> {todo.userId}</p>
                     <p><span className="todo-text">Task:</span> {todo.id}</p>
