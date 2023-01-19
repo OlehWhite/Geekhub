@@ -1,21 +1,21 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import {useEffect, useState} from "react";
+import {NavLink} from "react-router-dom";
+import "./users.css"
 
 export const Users = () => {
-    const [users, setUsers] = useState();
+    const [users, setUsers] = useState([]);
 
     useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/users')
+        fetch(`https://jsonplaceholder.typicode.com/users`)
             .then(response => response.json())
             .then(json => setUsers(json))
-    }, []);
+    }, [])
 
-    return (
+    return(
         <>
-            <h1>Users</h1>
             {users.map(user =>
                 <div key={user.id}>
-                    <Link to={`${user.id}`}>{user.name}</Link>
+                    <NavLink className="nav-link" to={`${user.id}`}>{user.name}</NavLink>
                 </div>
             )}
         </>

@@ -1,0 +1,19 @@
+.todo-item {
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #e1e1e1;
+    max-width: 400px;
+    margin: 10px auto;
+    padding: 20px;
+    font-size: 18px;
+    text-align: left;
+}
+
+.todo-item a {
+    text-decoration: none;
+    color: black;
+}
+
+.todo-item:hover {
+    background-color: #fffdfd;
+}

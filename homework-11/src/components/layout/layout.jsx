@@ -1,14 +1,15 @@
-import './layout.css';
-import { Header } from '../header';
-import { Sidebar } from '../sidebar';
-import { Outlet } from "react-router-dom";
+import { Outlet } from "react-router";
+import { Sidebar } from "../sidebar";
+import { Header } from "../header"
+
+import "./layout.css"
 
 export const Layout = () => {
 
     return (
-        <div className='Layout'>
+        <div className="layout-wrapper">
             <Sidebar />
-            <div className='Layout-body'>
+            <div className="layout-content">
                 <Header />
                 <Outlet />
             </div>
