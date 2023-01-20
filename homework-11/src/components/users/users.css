@@ -8,7 +8,6 @@
     margin: 10px 0;
 }
 
-.nav-link:hover {
-    color: #ffffff;
+.active {
+    background-color: #ffffff;
 }
-
