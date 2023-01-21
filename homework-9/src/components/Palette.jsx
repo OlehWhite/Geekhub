@@ -54,7 +54,6 @@ export const Palette = () => {
                 blue:  Math.round(blue / count),
             }))
         }
-        console.log(red, count, Math.round(red / count))
     }, [colorList, count])
 
     useEffect(() => {
