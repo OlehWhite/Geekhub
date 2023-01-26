@@ -1,0 +1,24 @@
+.wrapper-posts {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+  max-width: 1400px;
+  margin: 0 auto;
+
+  .wrapper-post {
+    background-color: rgba(193, 193, 193, 0.36);
+    max-width: 300px;
+    padding: 0 0 20px 0;
+    margin: 30px 10px;
+
+    .img_sw {
+      width: 100%
+    }
+
+  }
+
+}
+
+
+
