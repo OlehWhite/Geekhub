@@ -1,24 +1,20 @@
 import { useEffect, useState } from "react";
-import useUrlState from "@ahooksjs/use-url-state";
-import { useParams } from "react-router";
-import { Loader } from "../loader";
 import { Link } from "react-router-dom";
+import useUrlState from "@ahooksjs/use-url-state";
+import { Loader } from "../loader";
 
-import "./todos.css"
-
-export const Todos = () => {
-    const [todos, setTodos] = useState([]);
+export const Home = () => {
+    const [allTodos, setAllTodos] = useState([]);
     const [statusTodos, setStatusTodos] = useState(false);
     const [statusAlphabet, setStatusAlphabet] = useState(false);
     const [urlStatusTodos, setUrlStatusTodos] = useUrlState({});
     const [urlStatusAlphabet, setUrlStatusAlphabet] = useUrlState({});
-    const { id } = useParams();
 
     useEffect(() => {
-        fetch(`https://jsonplaceholder.typicode.com/users/${id}/todos/`)
+        fetch(`https://jsonplaceholder.typicode.com/todos`)
             .then(response => response.json())
-            .then(json => setTodos(json))
-    }, [id])
+            .then(json => setAllTodos(json))
+    }, [])
 
     const onChangeCompletedTodos = () => {
         setUrlStatusTodos(statusTodos
@@ -26,10 +22,10 @@ export const Todos = () => {
             : { statusTodos: "completed" }
         )
         setStatusTodos(prevState => !prevState)
-        setTodos([...todos].sort(
+        setAllTodos([...allTodos].sort(
             (a, b) => statusTodos
-            ? a.completed - b.completed
-            : b.completed - a.completed
+                ? a.completed - b.completed
+                : b.completed - a.completed
         ))
     }
 
@@ -39,14 +35,15 @@ export const Todos = () => {
             : { statusAlphabet: "a-z" }
         )
         setStatusAlphabet(prevState => !prevState)
-        setTodos([...todos].sort((a, b) => statusAlphabet
+        setAllTodos([...allTodos].sort((a, b) => statusAlphabet
             ? a.title < b.title ? 1 : -1
             : a.title > b.title ? 1 : -1
         ))
     }
 
     return (
-        <>
+        <div>
+            <h1>ToDos Of All Users</h1>
             <button
                 className="btn-filter__todo"
                 onClick={onChangeCompletedTodos}
@@ -55,17 +52,15 @@ export const Todos = () => {
                 className={"btn-filter__alphabet"}
                 onClick={onChangeByAlphabet}
             >Sort Alphabet</button>
-            {todos.length > 0
-                ? todos.map(todo =>
+            {allTodos.length > 0
+                ? allTodos.map(todo =>
                 <div className="todo-item" key={todo.id}>
-                    <Link to={`todos/${todo.id}`}>
+                    <Link to={`${todo.userId}/todos/${todo.id}`}>
                         {todo.completed ? <span>✅</span> : <span>❌</span>}
                         {todo.title}
                     </Link>
-                </div>
-                )
-                : <Loader />
-            }
-        </>
+                </div>)
+                : <Loader />}
+        </div>
     )
 }

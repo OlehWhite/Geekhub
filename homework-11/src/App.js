@@ -2,6 +2,7 @@ import { useRoutes} from "react-router-dom";
 import { Layout } from "./components/layout";
 import { User } from "./components/user";
 import { Todo } from "./components/todo";
+import { Home } from "./components/home";
 
 import './App.css'
 
@@ -11,18 +12,19 @@ function App() {
             path: "/",
             element: <Layout />,
             children: [
-                { index: true, element: <div>Home</div> },
+                { index: true, element: <Home /> },
+                { path: "todos/:userId", element: <Todo /> },
                 { path: ":id", element: <User /> },
-                { path: ":id/todos/:id", element: <Todo /> },
+                { path: ":id/todos/:userId", element: <Todo /> },
                 { path: "*", element: <div>Not Found</div> },
             ]}
     ]);
 
-  return (
-    <div className="App">
-        {element}
-    </div>
-  );
+    return (
+        <div className="App">
+            {element}
+        </div>
+    );
 }
 
 export default App;

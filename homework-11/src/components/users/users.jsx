@@ -12,12 +12,12 @@ export const Users = () => {
     }, [])
 
     return(
-        <>
+        <ul className="list-users">
             {users.map(user =>
-                <div key={user.id}>
+                <li key={user.id} className="item-user">
                     <NavLink className="nav-link" to={`${user.id}`}>{user.name}</NavLink>
-                </div>
+                </li>
             )}
-        </>
+        </ul>
     )
 }

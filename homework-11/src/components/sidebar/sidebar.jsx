@@ -10,8 +10,14 @@ export const Sidebar = () => {
 
     return (
         <div className="sidebar">
-            <Link className="link" to={"/"} reloadDocument>
-                <img src={logo} className="App-logo" alt="logo" />
+            <Link
+                className="link"
+                to={"/"}
+                reloadDocument>
+                <img
+                    src={logo}
+                    className="App-logo"
+                    alt="logo" />
             </Link>
             <Users />
         </div>

@@ -1,6 +1,6 @@
-import {useEffect, useState} from "react";
-import {useParams} from "react-router";
-import {Todos} from "../todos";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router";
+import { Todos } from "../todos";
 import "./user.css"
 
 export const User = () => {
