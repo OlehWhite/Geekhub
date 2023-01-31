@@ -10,13 +10,23 @@ import {
 
 import './style.css'
 
+const initialState = {
+    firstName: "",
+    lastName: "",
+    phone: "",
+    gender: "",
+    consent: "",
+    password: "",
+    confirmPassword: ""
+}
+
 export const FormSubmit = ({ submit }) => {
     const [submitBtnPassword, setSubmitBtnPassword] = useState(false);
     const [submitBtnGForm, setSubmitBtnGForm] = useState(false)
     const { values } = useFormContext()
 
-    const confirmGroup = ((validateName(values.firstName) === true
-            && validateName(values.lastName) === true)
+    const confirmGroup = (validateName(values.firstName) === true
+        && validateName(values.lastName) === true
         && validateEmail(values.email) === true
         && validatePhoneNumber(values.phone) === true
         && values.gender !== undefined
@@ -24,14 +34,14 @@ export const FormSubmit = ({ submit }) => {
         && values.race.length !== 0
         && values.consent === true)
 
-    const confirmOneUser = ((validateName(values.firstName) === true
-            && validateName(values.lastName) === "The first letter should be capitalized"
+    const confirmOneUser = (validateName(values.firstName) === true
+        && validateName(values.lastName) === "The first letter should be capitalized"
         && validateEmail(values.email) === true
         && validatePhoneNumber(values.phone) === true
         && values.gender !== undefined
         && values.race !== undefined
         && values.race.length !== 0
-        && values.consent === true))
+        && values.consent === true)
 
     useEffect(() => {
         if (validatePassword(values.password) === null && values.password === values.confirmPassword) {
@@ -49,7 +59,6 @@ export const FormSubmit = ({ submit }) => {
             setSubmitBtnGForm(false)
         }
     }, [values])
-
 
     return (
         <button
