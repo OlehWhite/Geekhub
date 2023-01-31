@@ -1,16 +1,16 @@
 import React from "react";
-import { validateEmail } from "../../../helper/validate";
+import { validateName } from "../../../helper/validate";
 import { Input } from "../../Input";
 
-export const FormEmailField = ({
-  onChange: propsOnChange,
-  onError,
-  required,
-  ...rest
+export const FormFirstName = ({
+    onChange: propsOnChange,
+    onError,
+    required,
+    ...rest
 }) => {
     const onChange = (event) => {
         const { value } = event.target;
-        onError(validateEmail(value, { required }))
+        onError(validateName(value, { required }))
         propsOnChange(value)
     }
 

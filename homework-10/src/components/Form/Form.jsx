@@ -41,7 +41,6 @@ export const Form = React.forwardRef(({
             return values
         })
     }
-
     const setError = (name, message) => {
         setErrors(prevState => {
             const errors = JSON.parse(JSON.stringify(prevState))
@@ -76,6 +75,7 @@ export const Form = React.forwardRef(({
             isSubmitting,
             isValid,
             values,
+            setValues,
             errors,
             setValue,
             setError
@@ -85,7 +85,7 @@ export const Form = React.forwardRef(({
                 ref={formRef}
                 onSubmit={onSubmit}
             >
-                { typeof children === 'function' ? children({ isSubmitting, isValid, values, errors }) : children}
+                { typeof children === 'function' ? children({ isSubmitting, isValid, values, setValues, errors }) : children}
             </form>
         </FormContext.Provider>
     )

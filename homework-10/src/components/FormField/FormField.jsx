@@ -2,7 +2,7 @@ import React, {useId} from "react";
 
 import { useFormContext } from "../Form";
 
-import { FormFirstNameAndLastField } from "./FormFirstNameAndLastNameField";
+import { FormFirstName } from "./FormFirstName";
 import { FormConfirmPasswordField } from "./FormConfirmPasswordField";
 import { FormPasswordField } from "./FormPasswordField";
 import { FormCheckboxField } from "./FormCheckboxField";
@@ -11,6 +11,7 @@ import { FormEmailField } from "./FormEmailField";
 import { FormCheckboxes } from "./FormCheckboxes";
 import { FormPhoneField } from "./FormPhoneField";
 import { FormInputField } from "./FormInputField";
+import { FormLastName } from "./FormLastName";
 
 import './style.css'
 
@@ -40,10 +41,10 @@ export const FormField = ({
     let Component;
     switch (type) {
         case 'name':
-            Component = FormFirstNameAndLastField;
+            Component = FormFirstName;
             break;
         case 'lastName':
-            Component = FormFirstNameAndLastField;
+            Component = FormLastName;
             break;
         case 'email':
             Component = FormEmailField;

@@ -27,6 +27,7 @@ export const FormPasswordField = ({
                 onChange={onChange}
                 type={showPassword ? 'text' : 'password'}
                 required={required}
+                aria-describedby={`${onError}Error`}
             />
             <button
                 className='button-item'

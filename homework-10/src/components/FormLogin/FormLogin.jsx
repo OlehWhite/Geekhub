@@ -20,10 +20,6 @@ export const EditUserProfile = () => {
     return (
         <>
             <Form onSubmit={onSubmit}>
-                {({values, errors}) => {
-                    // console.log(values)
-                    // console.log(errors)
-                    return (
                 <fieldset style={{ maxWidth: '400px', margin: '0 auto', borderRadius: '10px'}}>
                 <legend style={{ fontSize: '25px' }}>Global Form</legend>
                     <label className="switch">
@@ -122,9 +118,6 @@ export const EditUserProfile = () => {
                         submit={submit}
                     />
                 </fieldset>
-                    )
-                }}
-
             </Form>
         </>
     );

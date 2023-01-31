@@ -20,6 +20,7 @@ export const FormSelectsField = ({
         <Select
             options={options}
             onChange={onChange}
+            aria-describedby={`${onError}Error`}
         />
     )
 }

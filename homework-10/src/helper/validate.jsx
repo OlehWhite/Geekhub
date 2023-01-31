@@ -7,22 +7,18 @@ export function validatePassword(value, { required } = {}) {
         result.push(REQUIRED)
     }
 
-    if (/(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*])[A-Za-z0-9!@#$%^&*]{8,}/.test(value)) {
-        return
-    } else if (/(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[A-Za-z0-9!@#$%^&*]{0,8}/.test(value)) {
-        result.push('Please enter more than 8 characters')
-    } else if (/(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*])[A-Za-z0-9!@#$%^&*]{8,}/.test(value)) {
-        result.push('Specify at least one capital letter')
-    } else if (/(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[A-Za-z0-9!@#$%^&*]{8,}/.test(value)) {
-        result.push('Specify at least one lowercase letter')
-    } else if (/(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*])[A-Za-z0-9!@#$%^&*]{8,}/.test(value)) {
-        result.push('Specify at least one digit')
-    } else if (/(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])[A-Za-z0-9!@#$%^&*]{8,}/.test(value)) {
-        result.push('Specify at least one characters')
-    } else if (/^[А-Яа-я]/.test(value)) {
-        result.push('Use only Latin letters')
-    } else if (value.length > 0){
-        result.push('Incorrect password')
+    if (!/^\S*$/.test(value)) {
+        result.push("Password must not contain Whitespaces.");
+    } else if (!/^(?=.*[A-Z]).*$/.test(value)) {
+        result.push("Password must have at least one Uppercase Character.");
+    } else if (!/^(?=.*[a-z]).*$/.test(value)) {
+        result.push("Password must have at least one Lowercase Character.");
+    } else if (!/^(?=.*[0-9]).*$/.test(value)) {
+        result.push("Password must contain at least one Digit.");
+    } else if (!/^(?=.*[~`!@#$%^&*()--+={}\[\]|\\:;"'<>,.?/_₹]).*$/.test(value)) {
+        result.push("Password must contain at least one Special Symbol.");
+    } else if (!/^.{10,16}$/.test(value)) {
+        result.push("Password must be 10-16 Characters Long.");
     }
 
     return result.length === 0 ? null : result.join('. ');
@@ -41,7 +37,9 @@ export function validateName(value, { required } = {}) {
         result.push(REQUIRED)
     }
 
-    if (/^[А-я]/.test(value)) {
+    if (/^[A-Z][a-z]{2,}$/.test(value)) {
+        return true
+    } else if (/^[А-я]/.test(value)) {
         result.push('Use only Latin letters')
     } else if (/\d/.test(value)) {
         result.push('Cannot use numbers')
@@ -62,9 +60,11 @@ export function validateEmail(value, { required } = {}) {
     }
 
     if (/^[A-Za-z_]+[A-Za-z0-9_\.]+[A-Za-z0-9_]+?@[a-z]+\.[a-z]+$/.test(value)) {
-        return
-    } else {
+        return true
+    } else if (!/^[A-Za-z_]+[A-Za-z0-9_\.]+[A-Za-z0-9_]+?@[a-z]+\.[a-z]+$/.test(value)) {
         result.push('Not valid. Example: ivanov_ivan.33@email.ua')
+    } else {
+        return false
     }
 
     return result.length === 0 ? null : result.join('. ');
@@ -78,7 +78,7 @@ export function validatePhoneNumber(value, { required } = {}) {
     }
 
     if (/^((\+?3)?8)?(050|063|066|067|068|093|095|096|097|098|099)\d{7}$/.test(value)) {
-        return
+        return true
     } else if (/[A-zА-я]/.test(value)) {
         result.push('Use only digit');
     } else if (/^((\+?3)?8)?(050|063|066|067|068|093|095|096|097|098|099)\d{7,}$/.test(value)) {

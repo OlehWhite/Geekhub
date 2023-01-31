@@ -24,6 +24,7 @@ export const FormCheckboxField = ({
             id={id}
             type='checkbox'
             onChange={onChange}
+            aria-describedby={`${onError}Error`}
         />
     );
 };

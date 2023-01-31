@@ -2,7 +2,7 @@ import React from "react";
 import { validateName } from "../../../helper/validate";
 import { Input } from "../../Input";
 
-export const FormFirstNameAndLastField = ({
+export const FormLastName = ({
     onChange: propsOnChange,
     onError,
     required,
@@ -19,6 +19,7 @@ export const FormFirstNameAndLastField = ({
             {...rest}
             onChange={onChange}
             required={required}
+            aria-describedby={`${onError}Error`}
         />
     )
 }

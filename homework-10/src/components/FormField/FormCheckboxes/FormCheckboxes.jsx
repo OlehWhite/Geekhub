@@ -33,6 +33,7 @@ export const FormCheckboxes = ({
             value={option.value}
             label={option.label}
             onChange={onChange}
+            aria-describedby={`${onError}Error`}
         />
     ))
 }

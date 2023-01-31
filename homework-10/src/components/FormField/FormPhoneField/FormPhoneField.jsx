@@ -19,6 +19,7 @@ export const FormPhoneField = ({
             {...rest}
             onChange={onChange}
             required={required}
+            aria-describedby={`${onError}Error`}
         />
     )
 }
