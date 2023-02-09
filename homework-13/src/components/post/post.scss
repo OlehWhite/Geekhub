@@ -1,0 +1,29 @@
+.wrapper-home {
+  text-align: center;
+  margin-top: 18px;
+
+  .btn-home {
+   margin-right: 10px;
+
+    .link-home {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+    }
+  }
+}
+
+.post {
+  margin: 20px auto;
+  font-size: 18px;
+  background-color: rgba(255, 255, 255, 0.48);
+  max-width: 1200px;
+  padding: 20px;
+  border-radius: 10px;
+
+  .big-text {
+    display: inline-block;
+    font-weight: bold;
+    margin-right: 5px;
+  }
+}

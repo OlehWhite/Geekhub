@@ -1,0 +1,13 @@
+.comment {
+  font-size: 18px;
+  margin: 20px 20px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.22);
+  transition: .3s;
+}
+
+.comment:hover {
+  background-color: rgba(220, 220, 220, 0.47);
+  transition: .3s;
+}

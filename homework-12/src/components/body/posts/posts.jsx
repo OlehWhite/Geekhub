@@ -19,7 +19,7 @@ export const Posts = () => {
             {users ? users.map((user, index) => (
                 <Box
                     key={index}
-                    className="wrapper-post"
+                    className="wrapper-postStore"
                 >
                     <Box
                         className="img_sw"
