@@ -1,6 +1,7 @@
+import { useEffect, useState } from "react";
+import { getRandomIndex, getRandomNumberColor } from "../../utils";
+
 import "./window-game.scss"
-import {useEffect, useState} from "react";
-import {getRandomIndex, getRandomNumberColor} from "../../utils/utils";
 
 const hardLevel = Array.from(Array(280), (_, index) => index + 1);
 
@@ -33,8 +34,7 @@ export const WindowGame = () => {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            createdBalloons(getRandomIndex().toString())
-            console.log(2)
+            createdBalloons(getRandomIndex().toString());
         }, 1000)
     }, [])
 
