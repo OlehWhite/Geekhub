@@ -1,0 +1,32 @@
+.score {
+  font-size: 22px;
+  font-weight: bold;
+  color: rgba(0, 12, 45, 0.54);
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.window-game {
+  margin: 0 auto;
+  padding: 5px;
+  width: 1000px;
+  height: 750px;
+  border-radius: 10px;
+  border: 5px solid rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.65);
+  background-image: url("../../images/background.jpg");
+
+  .box-balloon {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+
+  .no-active {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+}
