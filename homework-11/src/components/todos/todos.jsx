@@ -8,10 +8,7 @@ import "./todos.css"
 
 export const Todos = () => {
     const [todos, setTodos] = useState([]);
-    const [statusTodos, setStatusTodos] = useState(false);
-    const [statusAlphabet, setStatusAlphabet] = useState(false);
-    const [urlStatusTodos, setUrlStatusTodos] = useUrlState({});
-    const [urlStatusAlphabet, setUrlStatusAlphabet] = useUrlState({});
+    const [urlStatus, setUrlStatus] = useUrlState({});
     const { id } = useParams();
 
     useEffect(() => {
@@ -21,27 +18,26 @@ export const Todos = () => {
     }, [id])
 
     const onChangeCompletedTodos = () => {
-        setUrlStatusTodos(statusTodos
-            ? { statusTodos: "uncompleted" }
-            : { statusTodos: "completed" }
-        )
-        setStatusTodos(prevState => !prevState)
-        setTodos([...todos].sort(
-            (a, b) => statusTodos
-            ? a.completed - b.completed
-            : b.completed - a.completed
+        urlStatus.status === "completed"
+            ? setUrlStatus({ status: "uncompleted" })
+            : setUrlStatus({ status: "completed" })
+
+        setTodos(todos.sort((a, b) =>
+            urlStatus.status === "completed"
+                ? a.completed - b.completed
+                : b.completed - a.completed
         ))
     }
 
     const onChangeByAlphabet = () => {
-        setUrlStatusAlphabet(statusAlphabet
-            ? { statusAlphabet: "z-a" }
-            : { statusAlphabet: "a-z" }
-        )
-        setStatusAlphabet(prevState => !prevState)
-        setTodos([...todos].sort((a, b) => statusAlphabet
-            ? a.title < b.title ? 1 : -1
-            : a.title > b.title ? 1 : -1
+        urlStatus.status === "a-z"
+            ? setUrlStatus({ status: "z-a" })
+            : setUrlStatus({ status: "a-z" })
+
+        setTodos(todos.sort((a, b) =>
+            urlStatus.status === "a-z"
+                ? a.title < b.title ? 1 : -1
+                : a.title > b.title ? 1 : -1
         ))
     }
 
@@ -56,7 +52,19 @@ export const Todos = () => {
                 onClick={onChangeByAlphabet}
             >Sort Alphabet</button>
             {todos.length > 0
-                ? todos.map(todo =>
+                ? todos
+                    .sort((a, b) => {
+                        if (urlStatus.status === "uncompleted") {
+                            return a.completed - b.completed
+                        } else if (urlStatus.status === "completed") {
+                            return b.completed - a.completed
+                        } else if (urlStatus.status === "z-a") {
+                            return a.title < b.title ? 1 : -1
+                        } else if (urlStatus.status === "a-z") {
+                            return a.title > b.title ? 1 : -1
+                        }
+                    })
+                    .map(todo =>
                 <div className="todo-item" key={todo.id}>
                     <Link to={`todos/${todo.id}`}>
                         {todo.completed ? <span>✅</span> : <span>❌</span>}
