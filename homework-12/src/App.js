@@ -1,9 +1,9 @@
 import './App.css';
 
 import { CssBaseline, createTheme, ThemeProvider } from "@mui/material"
-import { Navigation } from "./components/navigation";
+import { Navigation } from "./components/Navigation";
 import { useState } from "react";
-import { Body } from "./components/body";
+import { Posts } from "./components/Posts";
 
 const themeLight = createTheme({
     palette: {
@@ -18,17 +18,13 @@ const themeDark = createTheme({
 })
 
 function App() {
-    const [colorTheme, setColorTheme] = useState()
-
-    const handelNameChange = (valueColor) => {
-        setColorTheme(valueColor)
-    }
+    const [colorTheme, setColorTheme] = useState(true)
 
     return (
-        <ThemeProvider theme={colorTheme ? themeDark : themeLight}>
+        <ThemeProvider theme={colorTheme ? themeLight : themeDark}>
             <CssBaseline className="App">
-                <Navigation onChange={handelNameChange}/>
-                <Body />
+                <Navigation setColorTheme={setColorTheme}/>
+                <Posts />
             </CssBaseline>
         </ThemeProvider>
     );

@@ -4,23 +4,18 @@ import { useEffect, useState } from "react";
 import "./posts.scss"
 
 export const Posts = () => {
-    const [users, setUsers] = useState(null)
+    const [users, setUsers] = useState()
 
     useEffect(() => {
         fetch('https://swapi.dev/api/people/')
             .then(response => response.json())
-            .then(json => {
-                setUsers(json.results);
-            })
+            .then(json => setUsers(json.results))
     }, [])
 
     return (
         <Box className="wrapper-posts">
-            {users ? users.map((user, index) => (
-                <Box
-                    key={index}
-                    className="wrapper-postStore"
-                >
+            {users ? users.map((user, index) =>
+                (<Box key={index} className="wrapper-post">
                     <Box
                         className="img_sw"
                         component="img"
@@ -32,13 +27,12 @@ export const Posts = () => {
                     <Typography>Mass: {user.mass}</Typography>
                     <Typography>Hair Color: {user.hair_color}</Typography>
                     <Typography>Skin Color: {user.skin_color}</Typography>
-                </Box>
-            )) : <CircularProgress
+                </Box>))
+            : (<CircularProgress
                 style={{marginTop: "200px"}}
                 color="inherit"
                 size={100}
-            />
-            }
+                />)}
         </Box>
     )
 }
