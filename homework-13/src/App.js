@@ -1,8 +1,8 @@
 import './App.css';
 import {createTheme, ThemeProvider} from "@mui/material";
 import {useRoutes} from "react-router-dom";
-import {Posts} from "./components/posts";
-import {Post} from "./components/post";
+import {Posts} from "./components/Posts";
+import {Post} from "./components/Post";
 
 const theme = createTheme({});
 

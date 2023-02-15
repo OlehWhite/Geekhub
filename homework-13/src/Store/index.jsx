@@ -1,7 +1,7 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
-import posts from "./posts-store";
-import post from "./post-store"
-import comments from "./comments-store";
+import posts from "./PostsStore";
+import post from "./PostStore"
+import comments from "./CommentsStore";
 
 const rootReducer = combineReducers({
     posts,

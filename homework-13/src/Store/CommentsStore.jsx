@@ -2,21 +2,29 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const commentsStore = createSlice({
     name: 'comments',
-    initialState: [],
+    initialState: {
+        items: [],
+        isLoading: true,
+        isError: false
+    },
     reducers: {
         setComments(state, action) {
-            state.push(action.payload)
+            return {
+                ...state,
+                items: action.payload,
+                isLoading: false
+            }
         },
         setIsLoading(state, action) {
             return {
                 ...state,
-                isLoading: action.payload,
+                isLoading: action.payload
             }
         },
         setIsError(state, action) {
             return {
                 ...state,
-                isError: action.payload,
+                isError: action.payload
             }
         }
     }
