@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { Todos } from "../todos";
+import { Todos } from "../Todos";
 import "./user.css"
 import {MyUseParams, MyUser} from "../../types";
 
-export const User = () => {
+export const User: React.FC = () => {
     const [user, setUser] = useState<MyUser>({ name: '' });
     const { id } = useParams<MyUseParams>();
 

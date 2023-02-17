@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { Loader } from "../loader";
+import { Loader } from "../Loader";
 
 import { MyTodo, MyUseParams } from "../../types";
 
 import "./todo.css"
 
-export const Todo = () => {
+export const Todo: React.FC = () => {
     const [todo, setTodo] = useState<MyTodo>();
     const { id, userId } = useParams<MyUseParams>();
 

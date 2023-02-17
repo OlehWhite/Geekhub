@@ -13,9 +13,9 @@ function App() {
             element: <Layout />,
             children: [
                 { index: true, element: <Home /> },
-                { path: "todos/:userId", element: <Todo /> },
+                { path: "Todos/:userId", element: <Todo /> },
                 { path: ":id", element: <User /> },
-                { path: ":id/todos/:userId", element: <Todo /> },
+                { path: ":id/Todos/:userId", element: <Todo /> },
                 { path: "*", element: <div>Not Found</div> },
             ]}
     ]);

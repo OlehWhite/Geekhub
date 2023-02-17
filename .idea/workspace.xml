@@ -5,41 +5,43 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="78c48cf7-197f-4db4-870c-62d8f7946ef4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/App.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/header/header.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/header/header.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/header/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/home/home.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/home/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/layout/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/layout/layout.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/layout/layout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/loader/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/loader/loader.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/loader/loader.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/sidebar/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/sidebar/sidebar.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/sidebar/sidebar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/todo/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/todo/todo.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/todo/todo.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/todos/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/todos/todos.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/todos/todos.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/user/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/user/user.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/user/user.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/users/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/users/users.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/users/users.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/types/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/types/params.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/types/todo.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/types/todos.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/types/urlState.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/types/user.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/types/users.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework-1/zomentum/style/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/homework-1/zomentum/style/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework-10/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/homework-10/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework-11/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/homework-11/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework-11/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/homework-11/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework-12/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/homework-12/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework-13/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/homework-13/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework-14/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/homework-14/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework-15/homework-15.11/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/homework-15/homework-15.11/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework-15/homework-15.11/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/header/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/Header/header.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/header/header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/Header/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/header/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/Header/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/home/home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/Home/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/home/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/Home/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/layout/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/Layout/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/layout/layout.css" beforeDir="false" afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/Layout/layout.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/layout/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/Layout/Layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/loader/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/Loader/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/loader/loader.css" beforeDir="false" afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/Loader/loader.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/loader/loader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/Loader/Loader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/sidebar/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/Sidebar/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/sidebar/sidebar.css" beforeDir="false" afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/Sidebar/sidebar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/sidebar/sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/Sidebar/Sidebar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/todo/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/Todo/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/todo/todo.css" beforeDir="false" afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/Todo/todo.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/todo/todo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/Todo/Todo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/todos/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/Todos/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/todos/todos.css" beforeDir="false" afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/Todos/todos.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/todos/todos.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/Todos/Todos.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/user/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/User/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/user/user.css" beforeDir="false" afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/User/user.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/user/user.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/User/User.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/users/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/Users/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/users/users.css" beforeDir="false" afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/Users/users.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/users/users.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/Users/Users.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework-9/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/homework-9/public/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,11 +112,11 @@
       <recent name="C:\Users\oleh.white\Desktop\Geekhub\homework-10\src\components\FormField\FormTitle" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\oleh.white\Desktop\Geekhub\homework-15\homework-15.11\src\components\Home" />
       <recent name="C:\Users\oleh.white\Desktop\Geekhub\homework-15\homework-15.3\src" />
       <recent name="C:\Users\oleh.white\Desktop\Geekhub\homework-15\homework-15.3" />
       <recent name="C:\Users\oleh.white\Desktop\Geekhub\homework-15\node_modules" />
       <recent name="C:\Users\oleh.white\Desktop\Geekhub\homework-12\src\components" />
-      <recent name="C:\Users\oleh.white\Desktop\Geekhub\homework-12\src\components\Navigation" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.main.js (1)">
@@ -239,7 +241,7 @@
       <workItem from="1675693668599" duration="70455000" />
       <workItem from="1675942193543" duration="40567000" />
       <workItem from="1676299552322" duration="71974000" />
-      <workItem from="1676555620986" duration="35858000" />
+      <workItem from="1676555620986" duration="36291000" />
     </task>
     <servers />
   </component>

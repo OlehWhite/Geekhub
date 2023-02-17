@@ -1,12 +1,13 @@
+import React from "react";
 import { Link } from "react-router-dom";
-import { Users } from "../users";
+import { Users } from "../Users";
 
 import "./sidebar.css"
 import "../../App.css"
 
 import logo from "../../logo.svg"
 
-export const Sidebar = () => {
+export const Sidebar: React.FC = () => {
 
     return (
         <div className="sidebar">

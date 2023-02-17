@@ -5,7 +5,7 @@ body {
     padding: 0;
 }
 
-/** header */
+/** Header */
 .header {
     max-width: 1400px;
     margin: 0 auto;
@@ -294,7 +294,7 @@ body {
 
 /** adaptive screen 992px */
 @media screen and (max-width: 992px) {
-    /** header */
+    /** Header */
     .header,
     .nav__inner {
         display: flex;

@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useUrlState from "@ahooksjs/use-url-state";
 
-import { Loader } from "../loader";
+import { Loader } from "../Loader";
 
 import {MyTodos, MyUseUrlState} from "../../types";
 
-export const Home = () => {
+export const Home: React.FC = () => {
     const [allTodos, setAllTodos] = useState<MyTodos[]>([]);
     const [urlStatus, setUrlStatus] = useUrlState<MyUseUrlState>();
 
