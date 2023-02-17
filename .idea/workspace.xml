@@ -5,8 +5,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="78c48cf7-197f-4db4-870c-62d8f7946ef4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.3/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/App.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/header/header.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/header/header.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/header/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/home/home.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/home/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/layout/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/layout/layout.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/layout/layout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/loader/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/loader/loader.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/loader/loader.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/sidebar/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/sidebar/sidebar.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/sidebar/sidebar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/todo/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/todo/todo.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/todo/todo.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/todos/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/todos/todos.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/todos/todos.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/user/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/user/user.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/user/user.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/users/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/users/users.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/components/users/users.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/types/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/types/params.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/types/todo.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/types/todos.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/types/urlState.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/types/user.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework-15/homework-15.11/src/types/users.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +63,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
   <component name="ProjectId" id="2G26hWrbLRf0nas1jHElIZYm1LQ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -46,7 +82,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/oleh.white/Desktop/Geekhub/homework-15/homework-15.3",
+    "last_opened_file_path": "C:/Users/oleh.white/Desktop/Geekhub/homework-15/homework-15.11/src",
     "list.type.of.created.stylesheet": "SCSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -55,7 +91,7 @@
     "nodejs_package_manager_path": "npm",
     "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "settings.javascript.prettier",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2022.2.3\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external",
+    "ts.external.directory.path": "C:\\Users\\oleh.white\\Desktop\\Geekhub\\homework-15\\homework-15.11\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -67,11 +103,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\oleh.white\Desktop\Geekhub\homework-15\homework-15.11\src" />
       <recent name="C:\Users\oleh.white\Desktop\Geekhub\homework-15\homework-15.3" />
       <recent name="C:\Users\oleh.white\Desktop\Geekhub\homework-13\src\components" />
       <recent name="C:\Users\oleh.white\Desktop\Geekhub\homework-10\src\components\FormField\FormLastName" />
       <recent name="C:\Users\oleh.white\Desktop\Geekhub\homework-10\src\components\FormField\FormTitle" />
-      <recent name="C:\Users\oleh.white\Desktop\Geekhub\homework-12\src\utils" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\oleh.white\Desktop\Geekhub\homework-15\homework-15.3\src" />
@@ -203,7 +239,7 @@
       <workItem from="1675693668599" duration="70455000" />
       <workItem from="1675942193543" duration="40567000" />
       <workItem from="1676299552322" duration="71974000" />
-      <workItem from="1676555620986" duration="20954000" />
+      <workItem from="1676555620986" duration="35858000" />
     </task>
     <servers />
   </component>

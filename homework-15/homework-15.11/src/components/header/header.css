@@ -1,0 +1,19 @@
+.header-wrapper {
+    background-color: rgba(157, 154, 154, 0.24);
+    margin: 0;
+    padding: 26px;
+}
+
+.span-back {
+    justify-content: left;
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.39);
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+.span-back:hover {
+    background-color: greenyellow;
+}
