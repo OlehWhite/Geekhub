@@ -1,4 +1,4 @@
 export type MyUseParams = {
-    id: string | undefined,
-    userId: string | undefined
-}
+  id: string | undefined;
+  userId: string | undefined;
+};

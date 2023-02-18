@@ -1,19 +1,18 @@
 import React from "react";
 import { Outlet } from "react-router";
 import { Sidebar } from "../Sidebar";
-import { Header } from "../Header"
+import { Header } from "../Header";
 
-import "./layout.css"
+import "./layout.css";
 
 export const Layout: React.FC = () => {
-
-    return (
-        <div className="layout-wrapper">
-            <Sidebar />
-            <div className="layout-content">
-                <Header />
-                <Outlet />
-            </div>
-        </div>
-    )
-}
+  return (
+    <div className="layout-wrapper">
+      <Sidebar />
+      <div className="layout-content">
+        <Header />
+        <Outlet />
+      </div>
+    </div>
+  );
+};

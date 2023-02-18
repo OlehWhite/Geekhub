@@ -4,78 +4,85 @@ import { useParams } from "react-router";
 import { Loader } from "../Loader";
 import { Link } from "react-router-dom";
 
-import { MyTodos, MyUseParams, MyUseUrlState } from "../../types"
+import { MyTodos, MyUseParams, MyUseUrlState } from "../../types";
 
-import "./todos.css"
+import "./todos.css";
 
 export const Todos: React.FC = () => {
-    const [todos, setTodos] = useState<MyTodos[]>([]);
-    const [urlStatus, setUrlStatus] = useUrlState<MyUseUrlState>();
-    const { id } = useParams<MyUseParams>()
+  const [todos, setTodos] = useState<MyTodos[]>([]);
+  const [urlStatus, setUrlStatus] = useUrlState<MyUseUrlState>();
+  const { id } = useParams<MyUseParams>();
 
-    useEffect(() => {
-        fetch(`https://jsonplaceholder.typicode.com/users/${id}/todos/`)
-            .then(response => response.json())
-            .then(json => setTodos(json))
-    }, [id])
+  useEffect(() => {
+    fetch(`https://jsonplaceholder.typicode.com/users/${id}/todos/`)
+      .then((response) => response.json())
+      .then((json) => setTodos(json));
+  }, [id]);
 
-    const onChangeCompletedTodos = () => {
+  const onChangeCompletedTodos = () => {
+    urlStatus.status === "completed"
+      ? setUrlStatus({ status: "uncompleted" })
+      : setUrlStatus({ status: "completed" });
+
+    setTodos(
+      todos.sort((a, b) =>
         urlStatus.status === "completed"
-            ? setUrlStatus({ status: "uncompleted" })
-            : setUrlStatus({ status: "completed" })
+          ? a.completed - b.completed
+          : b.completed - a.completed
+      )
+    );
+  };
 
-        setTodos(todos.sort((a, b) =>
-            urlStatus.status === "completed"
-                ? a.completed - b.completed
-                : b.completed - a.completed
-        ))
-    }
+  const onChangeByAlphabet = () => {
+    urlStatus.status === "a-z"
+      ? setUrlStatus({ status: "z-a" })
+      : setUrlStatus({ status: "a-z" });
 
-    const onChangeByAlphabet = () => {
+    setTodos(
+      todos.sort((a, b) =>
         urlStatus.status === "a-z"
-            ? setUrlStatus({ status: "z-a" })
-            : setUrlStatus({ status: "a-z" })
+          ? a.title < b.title
+            ? 1
+            : -1
+          : a.title > b.title
+          ? 1
+          : -1
+      )
+    );
+  };
 
-        setTodos(todos.sort((a, b) =>
-            urlStatus.status === "a-z"
-                ? a.title < b.title ? 1 : -1
-                : a.title > b.title ? 1 : -1
-        ))
-    }
-
-    return (
-        <>
-            <button
-                className="btn-filter__todo"
-                onClick={onChangeCompletedTodos}
-            >Sort ToDo</button>
-            <button
-                className={"btn-filter__alphabet"}
-                onClick={onChangeByAlphabet}
-            >Sort Alphabet</button>
-            {todos.length > 0
-                ? todos
-                    .sort((a, b): number => {
-                        if (urlStatus.status === "uncompleted") {
-                            return a.completed - b.completed
-                        } else if (urlStatus.status === "completed") {
-                            return b.completed - a.completed
-                        } else if (urlStatus.status === "z-a") {
-                            return a.title < b.title ? 1 : -1
-                        } else {
-                            return a.title > b.title ? 1 : -1
-                        }
-                    })
-                    .map(todo =>
-                <div className="todo-item" key={todo.id}>
-                    <Link to={`todos/${todo.id}`}>
-                        {todo.completed ? <span>✅</span> : <span>❌</span>}
-                        {todo.title}
-                    </Link>
-                </div>
-                )
-                : <Loader />
+  return (
+    <>
+      <button className="btn-filter__todo" onClick={onChangeCompletedTodos}>
+        Sort ToDo
+      </button>
+      <button className={"btn-filter__alphabet"} onClick={onChangeByAlphabet}>
+        Sort Alphabet
+      </button>
+      {todos.length > 0 ? (
+        todos
+          .sort((a, b): number => {
+            if (urlStatus.status === "uncompleted") {
+              return a.completed - b.completed;
+            } else if (urlStatus.status === "completed") {
+              return b.completed - a.completed;
+            } else if (urlStatus.status === "z-a") {
+              return a.title < b.title ? 1 : -1;
+            } else {
+              return a.title > b.title ? 1 : -1;
             }
-        </>
-    )
-}
+          })
+          .map((todo) => (
+            <div className="todo-item" key={todo.id}>
+              <Link to={`todos/${todo.id}`}>
+                {todo.completed ? <span>✅</span> : <span>❌</span>}
+                {todo.title}
+              </Link>
+            </div>
+          ))
+      ) : (
+        <Loader />
+      )}
+    </>
+  );
+};

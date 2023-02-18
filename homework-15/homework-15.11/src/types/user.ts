@@ -1,3 +1,3 @@
 export type MyUser = {
-    name: string
-}
+  name: string;
+};

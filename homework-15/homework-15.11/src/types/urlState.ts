@@ -1,3 +1,3 @@
 export type MyUseUrlState = {
-    status: number,
-}
+  status: number;
+};
