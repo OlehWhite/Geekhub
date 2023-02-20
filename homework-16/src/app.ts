@@ -2,6 +2,8 @@ import express from "express";
 import { userController } from "./controllers";
 import morgan from "morgan";
 import bodyparser from "body-parser";
+import helmet from "helmet";
+import cors from "cors-ts";
 
 export class App {
   app = express();
@@ -12,6 +14,8 @@ export class App {
   }
 
   useMiddlewares() {
+    this.app.use(helmet());
+    this.app.use(cors());
     this.app.use(
       morgan(':date[iso] ":method :url :status :res[content-length]')
     );
