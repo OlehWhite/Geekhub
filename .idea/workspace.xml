@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="78c48cf7-197f-4db4-870c-62d8f7946ef4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,11 +77,11 @@
       <recent name="C:\Users\oleh.white\Desktop\Geekhub\homework-10\src\components\FormField\FormTitle" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\oleh.white\Desktop\Geekhub" />
       <recent name="C:\Users\oleh.white\Desktop\Geekhub\homework-16\src" />
       <recent name="C:\Users\oleh.white\Desktop\Geekhub\homework-16" />
       <recent name="C:\Users\oleh.white\Desktop\Geekhub\homework-15\homework-15.11\src\components\Home" />
       <recent name="C:\Users\oleh.white\Desktop\Geekhub\homework-15\homework-15.3\src" />
-      <recent name="C:\Users\oleh.white\Desktop\Geekhub\homework-15\homework-15.3" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.user.controller.js">
@@ -211,7 +210,7 @@
       <workItem from="1676826618220" duration="140000" />
       <workItem from="1676826771585" duration="1487000" />
       <workItem from="1676828416438" duration="2128000" />
-      <workItem from="1676830583943" duration="17109000" />
+      <workItem from="1676830583943" duration="17288000" />
     </task>
     <servers />
   </component>
