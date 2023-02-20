@@ -5,15 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="78c48cf7-197f-4db4-870c-62d8f7946ef4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/homework-16/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/homework-16/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework-16/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/homework-16/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework-16/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/homework-16/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework-16/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/homework-16/src/app.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework-16/src/common/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/homework-16/src/common/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework-16/src/common/types-and-interfaces.ts" beforeDir="false" afterPath="$PROJECT_DIR$/homework-16/src/common/types-and-interfaces.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework-16/src/controllers/user.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/homework-16/src/controllers/user.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework-16/src/services/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/homework-16/src/services/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework-16/src/services/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/homework-16/src/services/user.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -218,7 +211,7 @@
       <workItem from="1676826618220" duration="140000" />
       <workItem from="1676826771585" duration="1487000" />
       <workItem from="1676828416438" duration="2128000" />
-      <workItem from="1676830583943" duration="16773000" />
+      <workItem from="1676830583943" duration="17109000" />
     </task>
     <servers />
   </component>
