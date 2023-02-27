@@ -11,5 +11,3 @@ export type Todo = {
   topic: string;
   text: string;
 };
-
-

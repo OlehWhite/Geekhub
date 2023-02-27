@@ -6,10 +6,10 @@ export class UserController {
 
   constructor() {
     this.router.post("/register", this.register);
-    this.router.get("/login", this.login);
+    this.router.post("/login", this.login);
     this.router.post("/:userId/post", this.post);
-    this.router.get("/posts", this.posts);
-    this.router.put("/redact", this.redact);
+    this.router.post("/posts", this.posts);
+    this.router.patch("/redact", this.redact);
     this.router.delete("/delete", this.delete);
   }
 
@@ -23,13 +23,10 @@ export class UserController {
 
   login = async (req: Request, res: Response, next: NextFunction) => {
     const { login, password } = req.body;
-    const users = userService.db;
 
-    users.map((user) => {
-      if (user.password === password && user.login === login) {
-        res.send(user);
-      }
-    });
+    const oldUser = await userService.checkLogin(login, password);
+
+    res.send(oldUser);
   };
 
   post = async (req: Request, res: Response, next: NextFunction) => {
@@ -43,30 +40,11 @@ export class UserController {
   };
 
   posts = async (req: Request, res: Response, next: NextFunction) => {
-    const { userId } = req.body;
-    const { skip, take } = req.body;
-    const todos = userService.td;
-    const paginationTodos = await userService.addPagination(skip, take);
-    let skipPosts = [];
-    let takePosts = [];
+    const { skip, take, userId } = req.body;
 
-    for (let i = 0; i < todos.length; i++) {
-      if (todos[i].userId === +userId) {
-        if (todos[i].id >= paginationTodos.skip) {
-          skipPosts.push(todos[i]);
-        }
-      }
-    }
+    const paginationTodos = await userService.addPagination(skip, take, userId);
 
-    for (let i = 0; i < skipPosts.length; i++) {
-      if (skipPosts[i].userId === +userId) {
-        if (skipPosts[i].id <= paginationTodos.take) {
-          takePosts.push(skipPosts[i]);
-        }
-      }
-    }
-
-    res.send(takePosts);
+    res.send(paginationTodos);
   };
 
   redact = async (req: Request, res: Response, next: NextFunction) => {

@@ -44,16 +44,39 @@ export class UserService {
     return todo;
   }
 
-  async addPagination(skip: number, take: number) {
-    const pagination = {
-      skip,
-      take,
-    };
+  async checkLogin(login: string, password: string) {
+    const loginUser: any = [];
 
-    return {
-      skip: skip,
-      take: take,
-    };
+    this.db.map((oldUser) => {
+      if (oldUser.password === password && oldUser.login === login) {
+        loginUser.push(oldUser);
+      }
+    });
+
+    return loginUser;
+  }
+
+  async addPagination(skip: number, take: number, userId: number) {
+    let skipPosts: Todo[] = [];
+    let takePosts: Todo[] = [];
+
+    this.td.map((element) => {
+      if (element.userId === +userId) {
+        if (element.id >= skip) {
+          skipPosts.push(element);
+        }
+      }
+    });
+
+    skipPosts.map((element) => {
+      if (element.userId === +userId) {
+        if (element.id <= take) {
+          takePosts.push(element);
+        }
+      }
+    });
+
+    return takePosts;
   }
 
   async redact(id: number, topic: string, text: string) {
@@ -74,12 +97,11 @@ export class UserService {
   }
 
   async delete(id: number) {
-    for (let i = 0; i < this.td.length; i++) {
-      if (this.td[i].id === id) {
-        console.log(this.td[i].id, id);
-        this.td.splice(i, 1);
+    this.td.map((element, index) => {
+      if (element.id === id) {
+        this.td.splice(index, 1);
       }
-    }
+    });
   }
 }
 
