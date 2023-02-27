@@ -1,8 +1,3 @@
-export type MyUseParams = {
-  id: string | undefined;
-  userId: string | undefined;
-};
-
 export type MyTodo = {
   id: number;
   title: string;

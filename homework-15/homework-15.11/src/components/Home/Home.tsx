@@ -4,7 +4,7 @@ import useUrlState from "@ahooksjs/use-url-state";
 
 import { Loader } from "../Loader";
 
-import { MyTodos, MyUseUrlState } from "../../types";
+import { MyTodos, MyUseUrlState } from "../../types/types";
 
 export const Home: React.FC = () => {
   const [allTodos, setAllTodos] = useState<MyTodos[]>([]);
@@ -37,12 +37,8 @@ export const Home: React.FC = () => {
     setAllTodos(
       allTodos.sort((a, b) =>
         urlStatus.status === "a-z"
-          ? a.title < b.title
-            ? 1
-            : -1
-          : a.title > b.title
-          ? 1
-          : -1
+          ? (a.title < b.title ? 1 : -1)
+          : (a.title > b.title ? 1 : -1)
       )
     );
   };

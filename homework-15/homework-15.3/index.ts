@@ -3,20 +3,16 @@
 // Першим аргументом може бути масив будь-яких рядків інших значень там немає (input validation)
 // func(['my', 'name', 'is', 'Vasya'], cb); // 'MyNameIsVasya'
 
-type FirstLetter = {
-  (key: string): string;
-};
+type FirsLetter = (word: string) => void;
 
 const validMethodName = (
   arrayWords: string[],
-  callbackToUpperCaseFirstLetter: FirstLetter
+  callbackToUpperCaseFirstLetter: FirsLetter
 ): string => {
-  return arrayWords
-    .map((string) => callbackToUpperCaseFirstLetter(string))
-    .join("");
+  return arrayWords.map(callbackToUpperCaseFirstLetter).join("");
 };
 
-const validCallbackName: FirstLetter = (firstLetterOfTheWord) => {
+const validCallbackName: FirsLetter = (firstLetterOfTheWord) => {
   return firstLetterOfTheWord[0].toUpperCase() + firstLetterOfTheWord.slice(1);
 };
 console.log(validMethodName(["my", "name", "is", "Vasya"], validCallbackName));
@@ -24,15 +20,13 @@ console.log(validMethodName(["my", "name", "is", "Vasya"], validCallbackName));
 // Першим аргументом може бути тільки масив будь-яких чисел
 // func([10, 20, 30], cb) // '100, 200, 300'
 
-type MultiplyNumber = {
-  (key: number): number;
-};
+type MultiplyNumber = (number: number) => void;
 
 const validMethodNumber = (
   arrayNumbers: number[],
   callbackMultiply: MultiplyNumber
 ): string => {
-  return arrayNumbers.map((number) => callbackMultiply(number)).join();
+  return arrayNumbers.map(callbackMultiply).join();
 };
 
 const validCallNumber: MultiplyNumber = (multiplyByTwo) => {
@@ -43,23 +37,16 @@ console.log(validMethodNumber([10, 20, 30], validCallNumber));
 // Першим аргументом тільки об'єкти такого формату
 // func([{age: 45, name: 'Jhon'}, {age: 20, name: 'Aaron'}], cb); // 'Jhon is 45, Aaron is 20'
 
-type ObjNameAndAge = {
-  age: number;
-  name: string;
-};
-
-type NameAndAge = {
-  (key: ObjNameAndAge): string;
-};
+type NameAndAge = (object: object) => void;
 
 const validMethodObject = (
-  arrayObj: ObjNameAndAge[],
+  arrayObj: Array<{ age: number; name: string }>,
   callbackNameAndAge: NameAndAge
 ): string => {
-  return arrayObj.map((element) => callbackNameAndAge(element)).join();
+  return arrayObj.map(callbackNameAndAge).join();
 };
 
-const validCallbackObject: NameAndAge = (item) => {
+const validCallbackObject = (item) => {
   return `${item.name} is ${item.age}`;
 };
 console.log(
@@ -75,15 +62,13 @@ console.log(
 // Першим аргументом може бути  тільки масив рядків
 // func(['abc', '123'], cb) → // 'cba, 321' // рядки розвертаються
 
-type ReversElement = {
-  (key: string): string;
-};
+type ReversElement = (fn: string) => void;
 
 const validMethodReturnElement = (
   arrayElements: string[],
   callbackReverseElement: ReversElement
 ) => {
-  return arrayElements.map((element) => callbackReverseElement(element)).join();
+  return arrayElements.map(callbackReverseElement).join();
 };
 
 const validCallbackReverseElement: ReversElement = (str) => {
@@ -94,13 +79,13 @@ console.log(
 );
 
 // 3.1. Створити об'єкт який описує ширину і висоту прямокутника, а також вираховує площу фігури
-type TypeRectangle = {
+interface IRectangle {
   width: number;
   height: number;
   getSquare(): number;
-};
+}
 
-const rectangle: TypeRectangle = {
+const rectangle: IRectangle = {
   width: 4,
   height: 2,
   getSquare() {
@@ -181,12 +166,12 @@ getElementHeight(); //25
 // 4. Стрілочні функції
 // Переробити функцію на стрілочну
 
-type TypeConvertToObject = {
+type ConvertToObject = (value: number) => {
   value: number;
   isOdd: boolean;
 };
 
-const convertToObject: (number) => TypeConvertToObject = (number) => ({
+const convertToObject: ConvertToObject = (number) => ({
   value: number,
   isOdd: Boolean(number % 2),
 });
@@ -196,11 +181,9 @@ convertToObject(10); // { value: 10, isOdd: false }
 // 5.1
 // Створити функцію яка зможе так робити:
 
-type TypeMinus = {
-  (secondNumber?: number): number;
-};
+type Minus = (firstNumber?: number) => (secondNumber?: number) => number;
 
-const minus: (firstNumber?: number) => TypeMinus = (firstNumber = 0) => {
+const minus: Minus = (firstNumber = 0) => {
   return (secondNumber = 0) => firstNumber - secondNumber;
 };
 minus(10)(6); // 4
@@ -208,17 +191,15 @@ minus(10)(6); // 4
 // 5.2
 // Створити функцію яка множить і вміє запам'ятовувати результат між викликами
 
-type TypeArg = {
-  (arg: number): number;
-};
-
-type TypeFirstNumber = {
+type FirstNumber = {
   (firstNumber: number): number;
 };
 
-const multiplyMarker: (TypeFirstNumber) => TypeArg = (firstNumber) => {
+type MultiplyMarket = (firstNumber: FirstNumber) => (arg: number) => number;
+
+const multiplyMarker: MultiplyMarket = (firstNumber) => {
   let hasCalled = false;
-  let firstOperation;
+  let firstOperation: number;
 
   return function (arg) {
     if (hasCalled) return (firstOperation *= arg);
@@ -245,7 +226,7 @@ type TypeModule = {
 const module: TypeModule = (function () {
   let privateResult = "";
 
-  function showStr(val) {
+  function showStr(val: string) {
     privateResult += val;
   }
 
@@ -286,7 +267,7 @@ const moduleCalc: TypeModuleCalc = (function () {
   let totalResultCalc = 0;
   let hasCalled = false;
 
-  function firstValue(value) {
+  function firstValue(value: number) {
     totalResultCalc += value;
   }
 
@@ -327,11 +308,11 @@ moduleCalc.setFirstNumber(10).toExtent(2).getTotalResultCalc(); // 100
 // 6.
 // Реалізувати функцію sum.
 
-type TypeSum = {
-  (firstName: number): (secondNum: number) => (thirdNum: number) => number;
-};
+type Sum = (
+  firstName: number
+) => (secondNum: number) => (thirdNum: number) => number;
 
-const sum: TypeSum = (firstNum) => {
+const sum: Sum = (firstNum) => {
   return function (secondNum) {
     return function (thirdNum) {
       return firstNum + secondNum + thirdNum;

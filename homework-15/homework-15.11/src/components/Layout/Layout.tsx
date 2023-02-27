@@ -3,7 +3,7 @@ import { Outlet } from "react-router";
 import { Sidebar } from "../Sidebar";
 import { Header } from "../Header";
 
-import "./layout.css";
+import "./Layout.css";
 
 export const Layout: React.FC = () => {
   return (

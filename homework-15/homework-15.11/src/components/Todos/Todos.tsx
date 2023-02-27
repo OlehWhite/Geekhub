@@ -4,20 +4,20 @@ import { useParams } from "react-router";
 import { Loader } from "../Loader";
 import { Link } from "react-router-dom";
 
-import { MyTodos, MyUseParams, MyUseUrlState } from "../../types";
+import { MyTodos, MyUseUrlState } from "../../types/types";
 
-import "./todos.css";
+import "./Todos.css";
 
 export const Todos: React.FC = () => {
   const [todos, setTodos] = useState<MyTodos[]>([]);
   const [urlStatus, setUrlStatus] = useUrlState<MyUseUrlState>();
-  const { id } = useParams<MyUseParams>();
+  const { userId } = useParams<{ userId: string }>();
 
   useEffect(() => {
-    fetch(`https://jsonplaceholder.typicode.com/users/${id}/todos/`)
+    fetch(`https://jsonplaceholder.typicode.com/users/${userId}/todos/`)
       .then((response) => response.json())
       .then((json) => setTodos(json));
-  }, [id]);
+  }, [userId]);
 
   const onChangeCompletedTodos = () => {
     urlStatus.status === "completed"
@@ -41,12 +41,8 @@ export const Todos: React.FC = () => {
     setTodos(
       todos.sort((a, b) =>
         urlStatus.status === "a-z"
-          ? a.title < b.title
-            ? 1
-            : -1
-          : a.title > b.title
-          ? 1
-          : -1
+          ? (a.title < b.title ? 1 : -1)
+          : (a.title > b.title ? 1 : -1)
       )
     );
   };

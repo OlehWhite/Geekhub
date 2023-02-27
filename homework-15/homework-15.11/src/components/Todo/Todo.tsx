@@ -2,19 +2,21 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { Loader } from "../Loader";
 
-import { MyTodo, MyUseParams } from "../../types";
+import { MyTodo } from "../../types/types";
 
-import "./todo.css";
+import "./Todo.css";
 
 export const Todo: React.FC = () => {
   const [todo, setTodo] = useState<MyTodo>();
-  const { id, userId } = useParams<MyUseParams>();
+  const { userId, todoId } = useParams<{ userId: string; todoId: string }>();
 
   useEffect(() => {
-    fetch(`https://jsonplaceholder.typicode.com/users/${id}/todos?id=${userId}`)
+    fetch(
+      `https://jsonplaceholder.typicode.com/users/${userId}/todos?id=${todoId}`
+    )
       .then((response) => response.json())
       .then((json) => setTodo(json[0]));
-  }, [id, userId]);
+  }, [userId, todoId]);
 
   return (
     <div>

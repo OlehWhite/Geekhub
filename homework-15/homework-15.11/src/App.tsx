@@ -4,8 +4,6 @@ import { User } from "./components/User";
 import { Todo } from "./components/Todo";
 import { Home } from "./components/Home";
 
-import "./App.css";
-
 function App(): JSX.Element {
   const element = useRoutes([
     {
@@ -13,9 +11,8 @@ function App(): JSX.Element {
       element: <Layout />,
       children: [
         { index: true, element: <Home /> },
-        { path: "Todos/:userId", element: <Todo /> },
-        { path: ":id", element: <User /> },
-        { path: ":id/Todos/:userId", element: <Todo /> },
+        { path: ":userId", element: <User /> },
+        { path: ":userId/todos/:todoId", element: <Todo /> },
         { path: "*", element: <div>Not Found</div> },
       ],
     },

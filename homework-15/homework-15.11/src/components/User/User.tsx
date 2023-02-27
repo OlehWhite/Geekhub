@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { Todos } from "../Todos";
-import "./user.css";
-import { MyUseParams, MyUser } from "../../types";
+import "./User.css";
+import { MyUser } from "../../types/types";
 
 export const User: React.FC = () => {
   const [user, setUser] = useState<MyUser>({ name: "" });
-  const { id } = useParams<MyUseParams>();
+  const { userId } = useParams<{ userId: string }>();
 
   useEffect(() => {
-    fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
+    fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
       .then((response) => response.json())
       .then((data) => setUser(data));
-  }, [id]);
+  }, [userId]);
 
   return (
     <>

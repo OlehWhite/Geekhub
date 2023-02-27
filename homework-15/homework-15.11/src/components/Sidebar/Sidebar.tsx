@@ -2,8 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Users } from "../Users";
 
-import "./sidebar.css";
-import "../../App.css";
+import "./Sidebar.css";
 
 import logo from "../../logo.svg";
 

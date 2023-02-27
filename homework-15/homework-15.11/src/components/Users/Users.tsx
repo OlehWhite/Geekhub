@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import "./users.css";
-import { MyUsers } from "../../types";
+import "./Users.css";
+import { MyUsers } from "../../types/types";
 
 export const Users: React.FC = () => {
   const [users, setUsers] = useState<MyUsers[]>([]);

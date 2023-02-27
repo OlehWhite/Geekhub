@@ -1,9 +1,15 @@
-.App {
-  text-align: center;
+.sidebar {
+  width: 330px;
+  min-height: 100vh;
+  background-color: #9d9a9a;
 }
 
 .App-logo {
   height: 15vmin;
+}
+
+.App {
+  text-align: center;
 }
 
 @media (prefers-reduced-motion: no-preference) {
