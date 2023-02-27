@@ -1,4 +1,4 @@
-import { setIsError, setIsLoading, setPost } from "../Store/PostStore";
+import { setIsError, setIsLoading, setPost } from "../store/postStore";
 
 export function fetchPost(id) {
 

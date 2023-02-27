@@ -1,4 +1,4 @@
-import { setIsError, setIsLoading, setPosts } from "../Store/PostsStore";
+import { setIsError, setIsLoading, setPosts } from "../store/postsStore";
 
 const BASE_USERS_ID_URL = "https://hacker-news.firebaseio.com/v0/newstories.json?orderBy=%22$key%22&limitToFirst=100"
 

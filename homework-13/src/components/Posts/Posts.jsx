@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { Box, Button } from "@mui/material";
 import { NavLink } from "react-router-dom";
 
-import { fetchPosts } from "../../FetchRequests/GetPosts";
+import { fetchPosts } from "../../action/getPosts";
 
-import "./posts.scss"
+import "./Posts.scss"
 import { Loader } from "../Loader";
 
 export const Posts = () => {

@@ -2,10 +2,10 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Box } from "@mui/material";
 
-import { fetchComments } from "../../FetchRequests/GetComments";
+import { fetchComments } from "../../action/getComments";
 import { KidsComments } from "../KidsComments";
 
-import "./comment.scss"
+import "./Comment.scss"
 
 export const Comments = ({ kids }) => {
     const { items: comments } = useSelector(state => state.comments);

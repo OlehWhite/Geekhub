@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Box } from "@mui/material";
 import { AllComments } from "../AllComments";
 
-import "./kids-comments.scss"
+import "./KidsComments.scss"
 
 export const KidsComments = ({ commentText, commentKids }) => {
     const [activeComment, setActiveComment] = useState(false)

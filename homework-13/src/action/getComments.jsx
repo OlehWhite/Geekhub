@@ -1,4 +1,4 @@
-import { setIsError, setIsLoading, setComments } from "../Store/CommentsStore";
+import { setIsError, setIsLoading, setComments } from "../store/commentsStore";
 
 export function fetchComments(kids) {
     return (dispatch) => {

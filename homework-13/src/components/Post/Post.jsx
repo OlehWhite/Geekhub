@@ -3,10 +3,10 @@ import { NavLink, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Box, Button, Link } from "@mui/material";
 
-import { fetchPost } from "../../FetchRequests/GetPost";
+import { fetchPost } from "../../action/getPost";
 import { Comments } from "../Comments";
 
-import "./post.scss"
+import "./Post.scss"
 import {Loader} from "../Loader";
 
 export const Post = () => {
