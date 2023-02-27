@@ -1,1 +1,1 @@
-export * from "./utils"
+export { getRandomNumberColor, getRandomBalloonTop, getRandomBalloonLeft } from"./utils";

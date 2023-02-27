@@ -3,6 +3,11 @@ body {
   background: radial-gradient(circle, rgba(255,254,155,1) 23%, rgba(0,117,255,1) 99%);
 }
 
+h1 {
+  text-align: center;
+  color: rgb(225, 4, 4);
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
