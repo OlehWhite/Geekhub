@@ -8,9 +8,6 @@ import { Types } from "mongoose";
   },
 })
 export class Post {
-  @prop({ id: true })
-  id!: Types.ObjectId;
-
   @prop({ required: true })
   topic!: string;
 
@@ -19,6 +16,24 @@ export class Post {
 
   @prop({ required: true })
   user!: Types.ObjectId;
+
+  @prop({ id: true })
+  id!: Types.ObjectId;
+}
+
+export class Posts {
+  @prop({ required: true })
+  user!: Types.ObjectId;
+
+  @prop({ required: true })
+  skip!: string;
+
+  @prop({ required: true })
+  take!: string;
+
+  @prop({ id: true })
+  id!: Types.ObjectId;
 }
 
 export const PostModel = getModelForClass(Post);
+export const PostsModel = getModelForClass(Posts);
