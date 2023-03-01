@@ -57,26 +57,7 @@ export class UserService {
   }
 
   async addPagination(skip: number, take: number, userId: number) {
-    let skipPosts: Todo[] = [];
-    let takePosts: Todo[] = [];
-
-    this.td.map((element) => {
-      if (element.userId === +userId) {
-        if (element.id >= skip) {
-          skipPosts.push(element);
-        }
-      }
-    });
-
-    skipPosts.map((element) => {
-      if (element.userId === +userId) {
-        if (element.id <= take) {
-          takePosts.push(element);
-        }
-      }
-    });
-
-    return takePosts;
+    return this.td.slice(skip - 1, take);
   }
 
   async redact(id: number, topic: string, text: string) {
