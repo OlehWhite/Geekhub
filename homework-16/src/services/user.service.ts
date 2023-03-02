@@ -57,7 +57,7 @@ export class UserService {
   }
 
   async addPagination(skip: number, take: number, userId: number) {
-    return this.td.slice(skip - 1, take);
+    return this.td.filter(user => user.userId === +userId).slice(skip - 1, take);
   }
 
   async redact(id: number, topic: string, text: string) {
