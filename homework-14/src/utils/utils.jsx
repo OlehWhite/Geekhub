@@ -1,11 +1,7 @@
-export function getRandomBalloonTop() {
-    return Math.floor(Math.random() * 95)
+export function getRandomNumber(randomNumber) {
+  return Math.floor(Math.random() * randomNumber);
 }
 
-export function getRandomBalloonLeft() {
-    return Math.floor(Math.random() * 97)
-}
-
-export function getRandomNumberColor() {
-    return Math.floor(Math.random() * 256)
+export function getUniqueWithCounter() {
+  return (Math.random() * 123.45).toFixed(2)
 }

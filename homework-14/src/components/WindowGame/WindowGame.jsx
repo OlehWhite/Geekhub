@@ -1,62 +1,55 @@
 import { useEffect, useState } from "react";
-import {
-  getRandomBalloonLeft,
-  getRandomBalloonTop,
-  getRandomNumberColor,
-} from "../../utils";
+import {getRandomNumber, getUniqueWithCounter} from "../../utils/utils";
 
 import "./WindowGame.scss";
 
 export const WindowGame = () => {
-  const [balloon, setBalloon] = useState([]);
+  const [balloons, setBalloons] = useState([]);
   const [score, setScore] = useState(0);
 
   const setClickHandler = (e) => {
     let target = e.target;
     if (target.dataset.index) {
-      document.querySelector(
-        `.balloon[data-index="${target.dataset.index}"]`
-      ).outerHTML = "";
-      setScore(prevState => prevState + 1)
+      document
+        .querySelector(`.balloon[data-index="${target.dataset.index}"]`)
+        .remove();
+      setScore((prevState) => prevState + 1);
     }
   };
 
   useEffect(() => {
     const interval = setInterval(() => {
-
       const newBalloon = {
-        top: `${getRandomBalloonTop()}%`,
-        left: `${getRandomBalloonLeft()}%`,
+        id: getUniqueWithCounter(),
+        top: `${getRandomNumber(95)}%`,
+        left: `${getRandomNumber(97)}%`,
         backgroundColor: `rgb(
-          ${getRandomNumberColor()}, 
-          ${getRandomNumberColor()}, 
-          ${getRandomNumberColor()}, 
+          ${getRandomNumber(256)}, 
+          ${getRandomNumber(256)}, 
+          ${getRandomNumber(256)}, 
           .7)`,
       };
 
-      setBalloon([...balloon, newBalloon]);
+      setBalloons([...balloons, newBalloon]);
     }, 500);
 
     return () => clearInterval(interval);
-  }, [balloon]);
+  }, [balloons]);
 
   return (
     <>
       <div className="score">Score: {score}</div>
       <div className="window-game" onClick={(e) => setClickHandler(e)}>
-        {balloon.map((_, index) => (
+        {balloons.map((balloonStyle, index) => (
           <div
+            key={balloonStyle.id}
             data-index={index}
-            key={index}
             className="balloon"
-            style={{
-              top: _.top,
-              left: _.left,
-              backgroundColor: _.backgroundColor,
-            }}
+            style={balloonStyle}
           ></div>
         ))}
       </div>
     </>
   );
 };
+
