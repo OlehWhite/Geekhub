@@ -5,9 +5,18 @@ export class UserService {
   async addUser(
     login: string,
     password: string,
+    email: string,
+    avatar: string,
+    firstName: string,
+    lastName: string,
+    social: Object[],
+    age: number,
+    interests: [],
+    address1: string,
+    address2: string,
+    postIndex: number,
     isAdmin: boolean = false
   ): Promise<User> {
-    console.log(User)
     const oldUser: User[] = await UserModel.find({ login });
 
     oldUser.map((user) => {
@@ -23,14 +32,18 @@ export class UserService {
     login: string,
     password: string,
     isAdmin: boolean = false
-  ): Promise<User[] | undefined> {
-    const user: User[] = await UserModel.find({ login, password });
+  ): Promise<User[]> {
+    const user: User[] = await UserModel.find({
+      login,
+      password,
+      isAdmin,
+    });
 
-    if (user[0].login !== login || user[0].password !== password) {
+    if (user[0].login !== login || user[0].password) {
       throw new HttpError(404, "Not Found", "UserService");
     }
 
-    return user
+    return user;
   }
 }
 

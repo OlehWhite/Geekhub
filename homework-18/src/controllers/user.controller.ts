@@ -1,14 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { postService, userService } from "../services";
 import { BaseController } from "../common/abstract/base.controller";
-import Joi from "joi";
-
-const registerBodySchema = Joi.object({
-  login: Joi.string().min(3).max(255).required(),
-  password: Joi.string()
-    .regex(/^(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{8,}$/)
-    .required(),
-});
+import { postBodySchema, registerBodySchema } from "../common/validations";
 
 export class UserController extends BaseController {
   constructor() {
@@ -31,6 +24,9 @@ export class UserController extends BaseController {
         path: "/:userId/post",
         method: "post",
         handler: this.post,
+        validators: {
+          body: postBodySchema,
+        },
       },
       {
         path: "/posts",
@@ -41,6 +37,9 @@ export class UserController extends BaseController {
         path: "/redact",
         method: "patch",
         handler: this.redact,
+        validators: {
+          body: postBodySchema
+        }
       },
       {
         path: "/delete",
@@ -51,11 +50,22 @@ export class UserController extends BaseController {
   }
 
   register = async (req: Request, res: Response, next: NextFunction) => {
-    console.log(123123)
-    // console.log(req.body.login, req.body.password)
-    // res.send(req.body)
-    const {login, password} = req.body
-    res.send(await userService.addUser(login, password));
+    res.send(
+      await userService.addUser(
+        req.body.login,
+        req.body.password,
+        req.body.email,
+        req.body.avatar,
+        req.body.fistName,
+        req.body.lastName,
+        req.body.socials, // ist, face, twit
+        req.body.age,
+        req.body.interest,
+        req.body.address1,
+        req.body.address2,
+        req.body.postIndex
+      )
+    );
   };
 
   login = async (req: Request, res: Response, next: NextFunction) => {
